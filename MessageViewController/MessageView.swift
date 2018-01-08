@@ -18,6 +18,7 @@ public final class MessageView: UIView, MessageTextViewListener {
     internal let UITextViewContentSizeKeyPath = #keyPath(UITextView.contentSize)
     internal let topBorderLayer = CALayer()
     internal var contentView: UIView?
+    internal var buttonAction: Selector?
 
     internal override init(frame: CGRect) {
         super.init(frame: frame)
@@ -155,6 +156,12 @@ public final class MessageView: UIView, MessageTextViewListener {
 
     public func addButton(target: Any, action: Selector) {
         button.addTarget(target, action: action, for: .touchUpInside)
+        buttonAction = action
+    }
+
+    public override var keyCommands: [UIKeyCommand]? {
+        guard let action = buttonAction else { return nil }
+        return [UIKeyCommand(input: "\r", modifierFlags: .command, action: action)]
     }
 
     // MARK: Overrides
