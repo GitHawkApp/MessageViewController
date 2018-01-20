@@ -80,7 +80,7 @@ open class MessageViewController: UIViewController, MessageAutocompleteControlle
         case hiding
     }
     internal var keyboardState: KeyboardState = .resigned
-    internal var scrollView: UIScrollView!
+    internal var scrollView: UIScrollView?
     internal var keyboardHeight: CGFloat = 0
     internal var isMessageViewHidden = false
 
@@ -104,6 +104,8 @@ open class MessageViewController: UIViewController, MessageAutocompleteControlle
     }
 
     internal func layout() {
+        guard let scrollView = self.scrollView else { return }
+
         let bounds = view.bounds
 
         let safeAreaAdditionalHeight = self.safeAreaAdditionalHeight
@@ -138,7 +140,9 @@ open class MessageViewController: UIViewController, MessageAutocompleteControlle
 
     internal func cache() {
         guard let key = fullCacheKey else { return }
-        UserDefaults.standard.set(messageView.text, forKey: key)
+        let text = messageView.text.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !text.isEmpty else { return }
+        UserDefaults.standard.set(text, forKey: key)
     }
 
     var cachedText: String? {
@@ -153,31 +157,32 @@ open class MessageViewController: UIViewController, MessageAutocompleteControlle
             let animationDuration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval
             else { return }
 
-        scrollView.stopScrolling()
+        scrollView?.stopScrolling()
         keyboardState = .showing
 
         let previousKeyboardHeight = keyboardHeight
         keyboardHeight = keyboardFrame.height
 
         UIView.animate(withDuration: animationDuration) {
+            guard let scrollView = self.scrollView else { return }
             // capture before changing the frame which might have weird side effects
-            let contentOffset = self.scrollView.contentOffset.y
+            let contentOffset = scrollView.contentOffset
 
             self.layout()
 
-            let scrollViewHeight = self.scrollView.bounds.height
-            let contentHeight = self.scrollView.contentSize.height
-            let topInset = self.scrollView.util_adjustedContentInset.top
+            let scrollViewHeight = scrollView.bounds.height
+            let contentHeight = scrollView.contentSize.height
+            let topInset = scrollView.util_adjustedContentInset.top
             let bottomSafeInset = self.view.util_safeAreaInsets.bottom
 
             let newOffset = max(
                 min(
                     contentHeight - scrollViewHeight,
-                    contentOffset + self.keyboardHeight - previousKeyboardHeight - bottomSafeInset
+                    contentOffset.y + self.keyboardHeight - previousKeyboardHeight - bottomSafeInset
                 ),
                 -topInset
             )
-            self.scrollView.contentOffset = CGPoint(x: 0, y: newOffset)
+            scrollView.contentOffset = CGPoint(x: contentOffset.x, y: newOffset)
         }
     }
 
