@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = 'MessageViewController'
-  spec.version      = '0.1.0'
+  spec.version      = '0.1.1'
   spec.license      = { :type => 'MIT' }
   spec.homepage     = 'https://github.com/rnystrom/GitHawk'
   spec.authors      = { 'Ryan Nystrom' => 'rnystrom@whoisryannystrom.com' }
