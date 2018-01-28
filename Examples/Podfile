@@ -1,0 +1,6 @@
+use_frameworks!
+platform :ios, '11.0'
+
+target 'Examples' do
+  pod 'MessageViewController', :path => '../MessageViewController.podspec'
+end
