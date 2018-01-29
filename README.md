@@ -2,14 +2,6 @@
   <img src="/animation.gif" />
 </p>
 
-|         | Main Features  |
-----------|-----------------
-📱 | iPhone X support
-🐦 | Built in Swift
-💅 | Fully customizable
-🛠 | Decoupled API
-🦅 | Used in [GitHawk](https://github.com/rnystrom/githawk)
-
 ## Installation
 
 Just add `MessageViewController` to your Podfile and install. Done!
