@@ -58,9 +58,10 @@ The base view controller uses a `MessageAutocompleteController` control to handl
 This control uses a plain `UITableView` to display its autocomplete. Add a `dataSource` and `delegate` to display and handle interactions.
 
 ```swift
-messageAutocompleteController.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-messageAutocompleteController.tableView.dataSource = self
-messageAutocompleteController.tableView.delegate = self
+let tableView = messageAutocompleteController.tableView
+tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+tableView.dataSource = self
+tableView.delegate = self
 ```
 
 Then register for autocomplete prefixes you want to respond to and set a `delegate` to handle when a prefix is found.
