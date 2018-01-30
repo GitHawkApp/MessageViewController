@@ -52,10 +52,6 @@ public final class MessageView: UIView, MessageTextViewListener {
         button.imageEdgeInsets = .zero
 
         updateEmptyTextStates()
-
-        let tap = UITapGestureRecognizer(target: self, action: #selector(becomeFirstResponder))
-        tap.cancelsTouchesInView = false
-        addGestureRecognizer(tap)
     }
 
     public required init?(coder aDecoder: NSCoder) {
@@ -200,10 +196,6 @@ public final class MessageView: UIView, MessageTextViewListener {
 
     public override func resignFirstResponder() -> Bool {
         return textView.resignFirstResponder()
-    }
-
-    public override func becomeFirstResponder() -> Bool {
-        return textView.becomeFirstResponder()
     }
 
     // MARK: Private API
