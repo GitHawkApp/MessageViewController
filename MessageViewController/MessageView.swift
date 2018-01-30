@@ -33,7 +33,7 @@ public final class MessageView: UIView, MessageTextViewListener {
         textView.textContainerInset = .zero
         textView.backgroundColor = .clear
         textView.addObserver(self, forKeyPath: UITextViewContentSizeKeyPath, options: [.new], context: nil)
-        textView.font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
+        textView.font = .systemFont(ofSize: UIFont.systemFontSize)
         textView.add(listener: self)
 
         // setup TextKit props to defaults
