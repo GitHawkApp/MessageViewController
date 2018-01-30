@@ -6,7 +6,7 @@
 
 Just add `MessageViewController` to your Podfile and install. Done!
 
-```
+```ruby
 pod 'MessageViewController'
 ```
 
