@@ -43,7 +43,7 @@ borderColor = .lightGray
 messageView.inset = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
 messageView.textView.placeholderText = "New message..."
 messageView.textView.placeholderTextColor = .lightGray
-messageView.font = UIFont.systemFont(ofSize: 17)
+messageView.font = .systemFont(ofSize: 17)
 
 // Setup the button using text or an icon
 messageView.set(buttonTitle: "Send", for: .normal)
