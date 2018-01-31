@@ -38,6 +38,7 @@ class ViewController: MessageViewController, UITableViewDataSource, UITableViewD
         messageAutocompleteController.tableView.dataSource = self
         messageAutocompleteController.tableView.delegate = self
         messageAutocompleteController.register(prefix: "@")
+        messageAutocompleteController.autocompleteTextAttributes = ["@": [NSAttributedStringKey.font: UIFont.preferredFont(forTextStyle: .body), NSAttributedStringKey.foregroundColor: UIColor(red: 0, green: 122/255, blue: 1, alpha: 1), NSAttributedStringKey.backgroundColor: UIColor(red: 0, green: 122/255, blue: 1, alpha: 0.1)]]
         messageAutocompleteController.delegate = self
 
         setup(scrollView: tableView)
