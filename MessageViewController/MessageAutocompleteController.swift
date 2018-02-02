@@ -244,6 +244,7 @@ public final class MessageAutocompleteController: MessageTextViewListener {
                     
                     let emptyString = NSAttributedString(string: "", attributes: typingTextAttributes)
                     textView.attributedText = textView.attributedText.replacingCharacters(in: range, with: emptyString)
+                    textView.selectedRange = NSRange(location: range.location, length: 0)
                     self.preserveTypingAttributes(for: textView)
                 })
             }
