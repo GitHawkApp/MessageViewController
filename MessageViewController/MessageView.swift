@@ -14,7 +14,6 @@ public final class MessageView: UIView, MessageTextViewListener {
 
     internal weak var delegate: MessageViewDelegate?
     internal let button = UIButton()
-    internal let UITextViewContentSizeKeyPath = #keyPath(UITextView.contentSize)
     internal let topBorderLayer = CALayer()
     internal var contentView: UIView?
     internal var buttonAction: Selector?
@@ -32,7 +31,9 @@ public final class MessageView: UIView, MessageTextViewListener {
         textView.contentInset = .zero
         textView.textContainerInset = .zero
         textView.backgroundColor = .clear
-        textView.addObserver(self, forKeyPath: UITextViewContentSizeKeyPath, options: [.new], context: nil)
+        textViewContentSizeObservation = textView.observe(\.contentSize, options: [.new]) { [weak self] (_, _) in
+            self?.textViewContentSizeDidChange()
+        }
         textView.font = .systemFont(ofSize: UIFont.systemFontSize)
         textView.add(listener: self)
 
@@ -56,10 +57,6 @@ public final class MessageView: UIView, MessageTextViewListener {
 
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    deinit {
-        textView.removeObserver(self, forKeyPath: UITextViewContentSizeKeyPath)
     }
 
     // MARK: Public API
@@ -188,12 +185,6 @@ public final class MessageView: UIView, MessageTextViewListener {
         )
     }
 
-    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
-        if keyPath == UITextViewContentSizeKeyPath {
-            textViewContentSizeDidChange()
-        }
-    }
-
     public override func resignFirstResponder() -> Bool {
         return textView.resignFirstResponder()
     }
@@ -230,6 +221,8 @@ public final class MessageView: UIView, MessageTextViewListener {
         delegate?.sizeDidChange(messageView: self)
         textView.alwaysBounceVertical = textView.contentSize.height > maxHeight
     }
+
+    private var textViewContentSizeObservation: NSKeyValueObservation?
 
     // MARK: MessageTextViewListener
 
