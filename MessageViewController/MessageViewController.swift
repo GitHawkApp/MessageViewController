@@ -220,7 +220,7 @@ open class MessageViewController: UIViewController, MessageAutocompleteControlle
         guard gesture.state == .changed else { return }
         let location = gesture.location(in: view)
         if messageView.frame.contains(location) {
-            let _ = messageView.resignFirstResponder()
+            _ = messageView.resignFirstResponder()
         }
     }
 

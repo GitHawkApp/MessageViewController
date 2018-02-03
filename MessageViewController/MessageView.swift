@@ -188,7 +188,7 @@ public final class MessageView: UIView, MessageTextViewListener {
         )
     }
 
-    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == UITextViewContentSizeKeyPath {
             textViewContentSizeDidChange()
         }

@@ -10,7 +10,7 @@ import XCTest
 import MessageViewController
 
 class String_WordAtRangeTests: XCTestCase {
-    
+
     func test_wordParts_whenSingleCharacter() {
         // 16 characters
         let text = "foo bar\nbaz bang"
@@ -87,5 +87,5 @@ class String_WordAtRangeTests: XCTestCase {
         XCTAssertEqual(result?.word, "bar")
         XCTAssertEqual(text[result!.range], "bar")
     }
-    
+
 }

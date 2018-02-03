@@ -89,4 +89,3 @@ class ViewController: MessageViewController, UITableViewDataSource, UITableViewD
     }
 
 }
-
