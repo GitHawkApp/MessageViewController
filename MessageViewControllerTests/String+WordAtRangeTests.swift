@@ -9,6 +9,7 @@
 import XCTest
 import MessageViewController
 
+// swiftlint:disable:next type_name
 class String_WordAtRangeTests: XCTestCase {
 
     func test_wordParts_whenSingleCharacter() {
