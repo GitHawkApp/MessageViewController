@@ -9,7 +9,7 @@
 import UIKit
 import MessageViewController
 
-class ViewController: MessageViewController, UITableViewDataSource, UITableViewDelegate, MessageAutocompleteControllerDelegate {
+class ViewController: MessageViewController {
 
     // swiftlint:disable:next line_length
     var data = "Lorem ipsum dolor sit amet|consectetur adipiscing elit|sed do eiusmod|tempor incididunt|ut labore et dolore|magna aliqua| Ut enim ad minim|veniam, quis nostrud|exercitation ullamco|laboris nisi ut aliquip|ex ea commodo consequat|Duis aute|irure dolor in reprehenderit|in voluptate|velit esse cillum|dolore eu|fugiat nulla pariatur|Excepteur sint occaecat|cupidatat non proident|sunt in culpa|qui officia|deserunt|mollit anim id est laborum"
@@ -54,8 +54,11 @@ class ViewController: MessageViewController, UITableViewDataSource, UITableViewD
             animated: true
         )
     }
+}
 
-    // MARK: UITableViewDataSource
+// MARK: UITableViewDataSource
+
+extension ViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableView === self.tableView
@@ -73,7 +76,11 @@ class ViewController: MessageViewController, UITableViewDataSource, UITableViewD
         return cell
     }
 
-    // MARK: UITableViewDelegate
+}
+
+// MARK: UITableViewDelegate
+
+extension ViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -82,7 +89,11 @@ class ViewController: MessageViewController, UITableViewDataSource, UITableViewD
         }
     }
 
-    // MARK: MessageAutocompleteControllerDelegate
+}
+
+// MARK: MessageAutocompleteControllerDelegate
+
+extension ViewController: MessageAutocompleteControllerDelegate {
 
     func didFind(controller: MessageAutocompleteController, prefix: String, word: String) {
         autocompleteUsers = users.filter { word.isEmpty || $0.lowercased().contains(word.lowercased()) }
