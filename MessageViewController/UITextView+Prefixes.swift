@@ -10,6 +10,7 @@ import UIKit
 
 internal extension UITextView {
 
+    // swiftlint:disable:next large_tuple
     func find(prefixes: Set<String>) -> (prefix: String, word: String, range: NSRange)? {
         guard prefixes.count > 0,
             let result = wordAtCaret,
