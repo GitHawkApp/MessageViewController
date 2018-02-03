@@ -49,6 +49,10 @@ messageView.font = .systemFont(ofSize: 17)
 messageView.set(buttonTitle: "Send", for: .normal)
 messageView.addButton(target: self, action: #selector(onButton))
 messageView.buttonTint = .blue
+
+// Set custom attributes for an autocompleted string
+let tintColor = .blue
+messageAutocompleteController.autocompleteTextAttributes = ["@": [.font: UIFont.preferredFont(forTextStyle: .body), .foregroundColor: tintColor, .backgroundColor: tintColor.withAlphaComponent(0.1)]]
 ```
 
 ## Autocomplete

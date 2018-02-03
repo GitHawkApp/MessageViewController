@@ -240,5 +240,7 @@ public final class MessageView: UIView, MessageTextViewListener {
     public func didChangeSelection(textView: MessageTextView) {
         delegate?.selectionDidChange(messageView: self)
     }
+    
+    public func willChangeRange(textView: MessageTextView, to range: NSRange) {}
 
 }

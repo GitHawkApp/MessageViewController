@@ -23,6 +23,8 @@
 		29CC29471FF42687006B6DE7 /* String+WordAtRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC29451FF42687006B6DE7 /* String+WordAtRange.swift */; };
 		29CC29481FF42687006B6DE7 /* UIView+iOS11.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC29461FF42687006B6DE7 /* UIView+iOS11.swift */; };
 		29CC29491FF81F1F006B6DE7 /* String+WordAtRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC29451FF42687006B6DE7 /* String+WordAtRange.swift */; };
+		38199E112022792600ADFE76 /* NSAttributedString+ReplaceRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38199E102022792600ADFE76 /* NSAttributedString+ReplaceRange.swift */; };
+		38D26FB12023D01900B2B7B5 /* NSAttributedString+HighlightingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D26FB02023D01900B2B7B5 /* NSAttributedString+HighlightingTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		29CC29431FF4267F006B6DE7 /* String+WordAtRangeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+WordAtRangeTests.swift"; sourceTree = "<group>"; };
 		29CC29451FF42687006B6DE7 /* String+WordAtRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+WordAtRange.swift"; sourceTree = "<group>"; };
 		29CC29461FF42687006B6DE7 /* UIView+iOS11.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+iOS11.swift"; sourceTree = "<group>"; };
+		38199E102022792600ADFE76 /* NSAttributedString+ReplaceRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+ReplaceRange.swift"; sourceTree = "<group>"; };
+		38D26FB02023D01900B2B7B5 /* NSAttributedString+HighlightingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+HighlightingTests.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +112,7 @@
 				2904821D1FED90340053978C /* UIButton+BottomHeightOffset.swift */,
 				290482161FED90340053978C /* UIScrollView+StopScrolling.swift */,
 				2904821E1FED90340053978C /* UITextView+Prefixes.swift */,
+				38199E102022792600ADFE76 /* NSAttributedString+ReplaceRange.swift */,
 				29CC29461FF42687006B6DE7 /* UIView+iOS11.swift */,
 			);
 			path = MessageViewController;
@@ -119,6 +124,7 @@
 				29CC293C1FF4266D006B6DE7 /* Info.plist */,
 				29CC293A1FF4266D006B6DE7 /* MessageViewControllerTests.swift */,
 				29CC29431FF4267F006B6DE7 /* String+WordAtRangeTests.swift */,
+				38D26FB02023D01900B2B7B5 /* NSAttributedString+HighlightingTests.swift */,
 			);
 			path = MessageViewControllerTests;
 			sourceTree = "<group>";
@@ -242,6 +248,7 @@
 				290482201FED90340053978C /* MessageViewController.swift in Sources */,
 				29CC29481FF42687006B6DE7 /* UIView+iOS11.swift in Sources */,
 				29792B151FFAE7FC007A0C57 /* MessageAutocompleteController.swift in Sources */,
+				38199E112022792600ADFE76 /* NSAttributedString+ReplaceRange.swift in Sources */,
 				2904821F1FED90340053978C /* UIScrollView+StopScrolling.swift in Sources */,
 				29CC29471FF42687006B6DE7 /* String+WordAtRange.swift in Sources */,
 				290482271FED90340053978C /* UITextView+Prefixes.swift in Sources */,
@@ -253,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29CC293B1FF4266D006B6DE7 /* MessageViewControllerTests.swift in Sources */,
+				38D26FB12023D01900B2B7B5 /* NSAttributedString+HighlightingTests.swift in Sources */,
 				29CC29441FF4267F006B6DE7 /* String+WordAtRangeTests.swift in Sources */,
 				29CC29491FF81F1F006B6DE7 /* String+WordAtRange.swift in Sources */,
 			);
