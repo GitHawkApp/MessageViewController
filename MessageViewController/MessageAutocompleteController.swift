@@ -37,7 +37,7 @@ public final class MessageAutocompleteController: MessageTextViewListener {
     open var defaultTextAttributes: [NSAttributedStringKey: Any] = [.font: UIFont.preferredFont(forTextStyle: .body), .foregroundColor: UIColor.black]
     
     /// The text attributes applied to highlighted substrings for each prefix
-    open var autocompleteTextAttributes: [String: [NSAttributedStringKey: Any]] = [:]
+    private var autocompleteTextAttributes: [String: [NSAttributedStringKey: Any]] = [:]
     
     /// A key used for referencing which substrings were autocompletes
     private let NSAttributedAutocompleteKey = NSAttributedStringKey.init("com.messageviewcontroller.autocompletekey")
@@ -161,6 +161,10 @@ public final class MessageAutocompleteController: MessageTextViewListener {
         set {
             border.backgroundColor = newValue?.cgColor
         }
+    }
+
+    public func registerAutocomplete(prefix: String, attributes: [NSAttributedStringKey: Any]) {
+        autocompleteTextAttributes[prefix] = attributes
     }
 
     // MARK: Private API

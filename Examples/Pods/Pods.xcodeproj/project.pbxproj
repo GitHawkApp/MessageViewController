@@ -7,23 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03299A1CCCA758DE09EDFB35EE9893FA /* MessageAutocompleteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C7D5F13CA646724A3E933D3DB785F4 /* MessageAutocompleteController.swift */; };
-		0FFF25BFCAC1D42FC916B3B653A55323 /* UIButton+BottomHeightOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217D15596D3C5EC65A7CBD1B5FDC909F /* UIButton+BottomHeightOffset.swift */; };
-		18C4FFF14EFBB9DD42DA5444782772AC /* String+WordAtRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741D88E748EBFCFE809ACB993928FB69 /* String+WordAtRange.swift */; };
-		1B7AE02845B4458EE6CC7517786FB9F1 /* UITextView+Prefixes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECFEF2FC908DDA6CB9DEF814547C3CA /* UITextView+Prefixes.swift */; };
-		3275C3742F041B76FAEC79B0589897C1 /* UIScrollView+StopScrolling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBB2958F9FDAF13E66BC5D6C0736B14 /* UIScrollView+StopScrolling.swift */; };
-		348BCCFA0C495E3AF6D49D6428FB76F0 /* MessageViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4483ADF2D380B25216725407165393F6 /* MessageViewDelegate.swift */; };
-		350C932F65BEAF2CF3DF7AB358F0D20C /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2842E42C4E199602D2A70A5D884BFD /* MessageViewController.swift */; };
-		76A79C22A254E3834A91E6203C171D3E /* MessageViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FB3C8685DD1DD02201D0292A85F3F2 /* MessageViewController-dummy.m */; };
-		811BED4A0739373D59F58CA319E9FC8F /* MessageViewController+MessageViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D319185ADE69069B6287C7D893C64F8A /* MessageViewController+MessageViewDelegate.swift */; };
-		9A1B8F0F1137CBF920241ED8F4988BB7 /* MessageTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91E09B0D1EA6DAD277CD595809AB6E6 /* MessageTextView.swift */; };
-		A457A917B3A9D7CA58C5AE2B82A0F2BC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		0AEA0A72FF498B5BBC850842062CFA26 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		1BF30E8E48F1703881633ADF1D3668E0 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DA74672171E204495E4B360143C6A /* MessageViewController.swift */; };
+		2EA1F25878203ABBDC3D32204BD6C924 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5396B044562E78E0FDEC0D9A3B915B /* MessageView.swift */; };
+		48043ABFE79418EF931960ED29855796 /* MessageViewController+MessageViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88120228CF458435D2236C64DB036E3A /* MessageViewController+MessageViewDelegate.swift */; };
+		49533A4F96F222F89E7EA3EFDBE8668A /* UIButton+BottomHeightOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDAE55DEE91482E257BDEE39BFA11ED /* UIButton+BottomHeightOffset.swift */; };
+		6D6F7C71D33AF6BA0424AC50F967D7F1 /* String+WordAtRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D0538CE197D3ECB173BD3DABEB1DB /* String+WordAtRange.swift */; };
+		7FDE8A5D2EF8E282D1A6452530E137CB /* MessageViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F13D958197C185B2E05B89A28ACF7F9A /* MessageViewController-dummy.m */; };
+		8292B0109F5D42139CC88F8876755C0B /* MessageAutocompleteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6BA99CB0A264C8FDCF9F2A35255AC3 /* MessageAutocompleteController.swift */; };
+		95924FE621C38A19A48516605DC9239F /* UIView+iOS11.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF8E22ACCDA47937A3A8B4297428F27 /* UIView+iOS11.swift */; };
 		A7253CC5BDB0113BB96BDEE765DA85D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		C677101B4C4572F049A4E3F27C47B6BB /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E7DA8DA2F3D467E86036F961AECC8 /* MessageView.swift */; };
-		D1BF8AC0DC8F2AFF802FB6C4448A36A4 /* MessageViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A13D7A2A7CAA74F5BEDEEC5F78094D92 /* MessageViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B2EF6D06C6241A1C2B322696295C1F12 /* MessageTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8740D7783AEE9AB8796BE9ADEF37D488 /* MessageTextView.swift */; };
+		B5E1C48814B6A0E0057C7399B60E6A1F /* UIScrollView+StopScrolling.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81C0A064878637EDBEC425A7F7CB56D /* UIScrollView+StopScrolling.swift */; };
 		D35DB21A6B4BFCA7A27850C679EFE960 /* Pods-Examples-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CF476AA8B123161C7E43AA19423F34A0 /* Pods-Examples-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D579113B22A93703CA6CF9BB6F4725DF /* NSAttributedString+ReplaceRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A72229B3439164C419EBDAB2B2D268D /* NSAttributedString+ReplaceRange.swift */; };
 		D6310001724F0A69C71F00E53B42BAFE /* Pods-Examples-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CC67987DCD20B0E11FEC64AD36A08104 /* Pods-Examples-dummy.m */; };
-		DB1D3CF49154EF4416CC1246FE4172EC /* UIView+iOS11.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8976CD88BDF034B8A7B32E4D7528FE /* UIView+iOS11.swift */; };
+		DD0F13CA430DB78B26A436C0A5F90ECB /* UITextView+Prefixes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C1C1DDF830861C9F4713F8FF88A0B8 /* UITextView+Prefixes.swift */; };
+		F31E2AC194AA0AA562D1BD90E8F7A9FD /* MessageViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E4C436AF795185CF66188C76AE8E086F /* MessageViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F69A2FF839825859E66394B591A018E8 /* MessageViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F10B46643C0101E4B04654062D1729 /* MessageViewDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,49 +32,58 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = BF0CA67FDDC73C6AFCA8B3900C3E0488;
+			remoteGlobalIDString = 47EDC1A36C990546A95696AD98450635;
 			remoteInfo = MessageViewController;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		08A7878126200E0B606EB9753A95E859 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		11D52F66C8D72D77C8D94DABFCE4E8B1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		0A5396B044562E78E0FDEC0D9A3B915B /* MessageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MessageView.swift; path = MessageViewController/MessageView.swift; sourceTree = "<group>"; };
 		212992D9667EAD3AF415D69AA72A8C39 /* Pods-Examples-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Examples-acknowledgements.plist"; sourceTree = "<group>"; };
-		217D15596D3C5EC65A7CBD1B5FDC909F /* UIButton+BottomHeightOffset.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIButton+BottomHeightOffset.swift"; path = "MessageViewController/UIButton+BottomHeightOffset.swift"; sourceTree = "<group>"; };
-		261E7DA8DA2F3D467E86036F961AECC8 /* MessageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MessageView.swift; path = MessageViewController/MessageView.swift; sourceTree = "<group>"; };
+		28CBB08EFD96DDDCA35F85D08ADC7A2F /* MessageViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MessageViewController.xcconfig; sourceTree = "<group>"; };
 		2B038BDA4A2DE18B6392A8EB939D461B /* Pods-Examples-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Examples-acknowledgements.markdown"; sourceTree = "<group>"; };
-		4483ADF2D380B25216725407165393F6 /* MessageViewDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MessageViewDelegate.swift; path = MessageViewController/MessageViewDelegate.swift; sourceTree = "<group>"; };
+		3A72229B3439164C419EBDAB2B2D268D /* NSAttributedString+ReplaceRange.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSAttributedString+ReplaceRange.swift"; path = "MessageViewController/NSAttributedString+ReplaceRange.swift"; sourceTree = "<group>"; };
 		4B5D175174FED0D211005E28DCCB9A59 /* Pods-Examples.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Examples.debug.xcconfig"; sourceTree = "<group>"; };
-		50B07B537EBA9D6C846A75C5029133D4 /* MessageViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MessageViewController.modulemap; sourceTree = "<group>"; };
-		51C7D5F13CA646724A3E933D3DB785F4 /* MessageAutocompleteController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MessageAutocompleteController.swift; path = MessageViewController/MessageAutocompleteController.swift; sourceTree = "<group>"; };
-		5A8976CD88BDF034B8A7B32E4D7528FE /* UIView+iOS11.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+iOS11.swift"; path = "MessageViewController/UIView+iOS11.swift"; sourceTree = "<group>"; };
+		54C1C1DDF830861C9F4713F8FF88A0B8 /* UITextView+Prefixes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITextView+Prefixes.swift"; path = "MessageViewController/UITextView+Prefixes.swift"; sourceTree = "<group>"; };
 		5B01107EB1B9BD80E1F283B8EE931EB1 /* Pods-Examples-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Examples-frameworks.sh"; sourceTree = "<group>"; };
-		62903DCAC3B65AB9800762FCB1D2DBF7 /* MessageViewController.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = MessageViewController.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		741D88E748EBFCFE809ACB993928FB69 /* String+WordAtRange.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+WordAtRange.swift"; path = "MessageViewController/String+WordAtRange.swift"; sourceTree = "<group>"; };
-		8B2842E42C4E199602D2A70A5D884BFD /* MessageViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MessageViewController.swift; path = MessageViewController/MessageViewController.swift; sourceTree = "<group>"; };
+		6A4502DB0407EDA9A5E4A8CB547804A2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		8740D7783AEE9AB8796BE9ADEF37D488 /* MessageTextView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MessageTextView.swift; path = MessageViewController/MessageTextView.swift; sourceTree = "<group>"; };
+		88120228CF458435D2236C64DB036E3A /* MessageViewController+MessageViewDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "MessageViewController+MessageViewDelegate.swift"; path = "MessageViewController/MessageViewController+MessageViewDelegate.swift"; sourceTree = "<group>"; };
+		88F10B46643C0101E4B04654062D1729 /* MessageViewDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MessageViewDelegate.swift; path = MessageViewController/MessageViewDelegate.swift; sourceTree = "<group>"; };
+		8C06C3D654F84D4F688594BECFD35C9C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9BBB2958F9FDAF13E66BC5D6C0736B14 /* UIScrollView+StopScrolling.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIScrollView+StopScrolling.swift"; path = "MessageViewController/UIScrollView+StopScrolling.swift"; sourceTree = "<group>"; };
+		9A0E36896AE99549372F0A04877B7EAC /* MessageViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MessageViewController.modulemap; sourceTree = "<group>"; };
 		9F7CA8A37DAB011181174507244B8DDB /* MessageViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MessageViewController.framework; path = MessageViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A13D7A2A7CAA74F5BEDEEC5F78094D92 /* MessageViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MessageViewController-umbrella.h"; sourceTree = "<group>"; };
 		A4286613166589E2719A2DB5F24F4D3F /* Pods-Examples-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Examples-resources.sh"; sourceTree = "<group>"; };
+		A49DE978024C59B3806D9FA0F83571EC /* MessageViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MessageViewController-prefix.pch"; sourceTree = "<group>"; };
 		A9CAD72ABED699BF6E5726387A50E8F7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA6BA99CB0A264C8FDCF9F2A35255AC3 /* MessageAutocompleteController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MessageAutocompleteController.swift; path = MessageViewController/MessageAutocompleteController.swift; sourceTree = "<group>"; };
+		ADDAE55DEE91482E257BDEE39BFA11ED /* UIButton+BottomHeightOffset.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIButton+BottomHeightOffset.swift"; path = "MessageViewController/UIButton+BottomHeightOffset.swift"; sourceTree = "<group>"; };
 		AEA989834329C60EEEF30AF4F9BC718F /* Pods-Examples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Examples.release.xcconfig"; sourceTree = "<group>"; };
-		B0FB3C8685DD1DD02201D0292A85F3F2 /* MessageViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MessageViewController-dummy.m"; sourceTree = "<group>"; };
+		B81C0A064878637EDBEC425A7F7CB56D /* UIScrollView+StopScrolling.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIScrollView+StopScrolling.swift"; path = "MessageViewController/UIScrollView+StopScrolling.swift"; sourceTree = "<group>"; };
+		BF6DA74672171E204495E4B360143C6A /* MessageViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MessageViewController.swift; path = MessageViewController/MessageViewController.swift; sourceTree = "<group>"; };
 		C711475B7A4F0F74CFD0D19DEC518676 /* Pods_Examples.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Examples.framework; path = "Pods-Examples.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C73D0538CE197D3ECB173BD3DABEB1DB /* String+WordAtRange.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+WordAtRange.swift"; path = "MessageViewController/String+WordAtRange.swift"; sourceTree = "<group>"; };
+		C92F366458F5B5EC84057D47A6D19024 /* MessageViewController.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = MessageViewController.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		CC67987DCD20B0E11FEC64AD36A08104 /* Pods-Examples-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Examples-dummy.m"; sourceTree = "<group>"; };
 		CF476AA8B123161C7E43AA19423F34A0 /* Pods-Examples-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Examples-umbrella.h"; sourceTree = "<group>"; };
-		D319185ADE69069B6287C7D893C64F8A /* MessageViewController+MessageViewDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "MessageViewController+MessageViewDelegate.swift"; path = "MessageViewController/MessageViewController+MessageViewDelegate.swift"; sourceTree = "<group>"; };
-		DD133615851079A55F9E9378A98B3546 /* MessageViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MessageViewController.xcconfig; sourceTree = "<group>"; };
 		E329317942600C29B668F24E5DFE7E93 /* Pods-Examples.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Examples.modulemap"; sourceTree = "<group>"; };
-		E6872A707B5213DA5D282DCF7780FCF2 /* MessageViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MessageViewController-prefix.pch"; sourceTree = "<group>"; };
-		EECFEF2FC908DDA6CB9DEF814547C3CA /* UITextView+Prefixes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITextView+Prefixes.swift"; path = "MessageViewController/UITextView+Prefixes.swift"; sourceTree = "<group>"; };
-		F0456C529A31DAA63F7597CFA1E6BCBC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F91E09B0D1EA6DAD277CD595809AB6E6 /* MessageTextView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MessageTextView.swift; path = MessageViewController/MessageTextView.swift; sourceTree = "<group>"; };
+		E4C436AF795185CF66188C76AE8E086F /* MessageViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MessageViewController-umbrella.h"; sourceTree = "<group>"; };
+		F13D958197C185B2E05B89A28ACF7F9A /* MessageViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MessageViewController-dummy.m"; sourceTree = "<group>"; };
+		F3FFCFA344E1D6543F6DF7598CE9B593 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		FDF8E22ACCDA47937A3A8B4297428F27 /* UIView+iOS11.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+iOS11.swift"; path = "MessageViewController/UIView+iOS11.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		128CA2E25304F83C217A432957189F4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AEA0A72FF498B5BBC850842062CFA26 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2688B6C7D37E32CB72FFB75A1BDE5C48 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -82,17 +92,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		41E90327E442BE171C2DDF8096E0ACE7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A457A917B3A9D7CA58C5AE2B82A0F2BC /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3441085000E940EF2B125D20434A3947 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				6A4502DB0407EDA9A5E4A8CB547804A2 /* LICENSE */,
+				C92F366458F5B5EC84057D47A6D19024 /* MessageViewController.podspec */,
+				F3FFCFA344E1D6543F6DF7598CE9B593 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
 		39A5945FAF4C040C9F9182A8BD15B7EE /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,27 +112,6 @@
 				C711475B7A4F0F74CFD0D19DEC518676 /* Pods_Examples.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		6725F6156E8B7F79529263B353F81B70 /* MessageViewController */ = {
-			isa = PBXGroup;
-			children = (
-				51C7D5F13CA646724A3E933D3DB785F4 /* MessageAutocompleteController.swift */,
-				F91E09B0D1EA6DAD277CD595809AB6E6 /* MessageTextView.swift */,
-				261E7DA8DA2F3D467E86036F961AECC8 /* MessageView.swift */,
-				8B2842E42C4E199602D2A70A5D884BFD /* MessageViewController.swift */,
-				D319185ADE69069B6287C7D893C64F8A /* MessageViewController+MessageViewDelegate.swift */,
-				4483ADF2D380B25216725407165393F6 /* MessageViewDelegate.swift */,
-				741D88E748EBFCFE809ACB993928FB69 /* String+WordAtRange.swift */,
-				217D15596D3C5EC65A7CBD1B5FDC909F /* UIButton+BottomHeightOffset.swift */,
-				9BBB2958F9FDAF13E66BC5D6C0736B14 /* UIScrollView+StopScrolling.swift */,
-				EECFEF2FC908DDA6CB9DEF814547C3CA /* UITextView+Prefixes.swift */,
-				5A8976CD88BDF034B8A7B32E4D7528FE /* UIView+iOS11.swift */,
-				C32ED7A77BD04FB42282602E0BB7B424 /* Pod */,
-				A4D5273C3D94BB5CDFB0EF6C99F12ECC /* Support Files */,
-			);
-			name = MessageViewController;
-			path = ../..;
 			sourceTree = "<group>";
 		};
 		6B333696FCF08235E417336B6A77B269 /* Pods-Examples */ = {
@@ -141,10 +132,10 @@
 			path = "Target Support Files/Pods-Examples";
 			sourceTree = "<group>";
 		};
-		7438B43CD400F6C8F5CE8A8D6370FB55 /* Development Pods */ = {
+		7B47F98F59AAA0EB63C0936C64F99F82 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6725F6156E8B7F79529263B353F81B70 /* MessageViewController */,
+				AA3242DC42F1A624A9285C490E6FF96A /* MessageViewController */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
@@ -153,25 +144,33 @@
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				7438B43CD400F6C8F5CE8A8D6370FB55 /* Development Pods */,
+				7B47F98F59AAA0EB63C0936C64F99F82 /* Development Pods */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
 				39A5945FAF4C040C9F9182A8BD15B7EE /* Products */,
 				F872D0250D61C30260F42D978EB4C3C0 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		A4D5273C3D94BB5CDFB0EF6C99F12ECC /* Support Files */ = {
+		AA3242DC42F1A624A9285C490E6FF96A /* MessageViewController */ = {
 			isa = PBXGroup;
 			children = (
-				F0456C529A31DAA63F7597CFA1E6BCBC /* Info.plist */,
-				50B07B537EBA9D6C846A75C5029133D4 /* MessageViewController.modulemap */,
-				DD133615851079A55F9E9378A98B3546 /* MessageViewController.xcconfig */,
-				B0FB3C8685DD1DD02201D0292A85F3F2 /* MessageViewController-dummy.m */,
-				E6872A707B5213DA5D282DCF7780FCF2 /* MessageViewController-prefix.pch */,
-				A13D7A2A7CAA74F5BEDEEC5F78094D92 /* MessageViewController-umbrella.h */,
+				AA6BA99CB0A264C8FDCF9F2A35255AC3 /* MessageAutocompleteController.swift */,
+				8740D7783AEE9AB8796BE9ADEF37D488 /* MessageTextView.swift */,
+				0A5396B044562E78E0FDEC0D9A3B915B /* MessageView.swift */,
+				BF6DA74672171E204495E4B360143C6A /* MessageViewController.swift */,
+				88120228CF458435D2236C64DB036E3A /* MessageViewController+MessageViewDelegate.swift */,
+				88F10B46643C0101E4B04654062D1729 /* MessageViewDelegate.swift */,
+				3A72229B3439164C419EBDAB2B2D268D /* NSAttributedString+ReplaceRange.swift */,
+				C73D0538CE197D3ECB173BD3DABEB1DB /* String+WordAtRange.swift */,
+				ADDAE55DEE91482E257BDEE39BFA11ED /* UIButton+BottomHeightOffset.swift */,
+				B81C0A064878637EDBEC425A7F7CB56D /* UIScrollView+StopScrolling.swift */,
+				54C1C1DDF830861C9F4713F8FF88A0B8 /* UITextView+Prefixes.swift */,
+				FDF8E22ACCDA47937A3A8B4297428F27 /* UIView+iOS11.swift */,
+				3441085000E940EF2B125D20434A3947 /* Pod */,
+				BF949C53550F0A899D2EF2C7268EBC97 /* Support Files */,
 			);
-			name = "Support Files";
-			path = "Examples/Pods/Target Support Files/MessageViewController";
+			name = MessageViewController;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -182,14 +181,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C32ED7A77BD04FB42282602E0BB7B424 /* Pod */ = {
+		BF949C53550F0A899D2EF2C7268EBC97 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				08A7878126200E0B606EB9753A95E859 /* LICENSE */,
-				62903DCAC3B65AB9800762FCB1D2DBF7 /* MessageViewController.podspec */,
-				11D52F66C8D72D77C8D94DABFCE4E8B1 /* README.md */,
+				8C06C3D654F84D4F688594BECFD35C9C /* Info.plist */,
+				9A0E36896AE99549372F0A04877B7EAC /* MessageViewController.modulemap */,
+				28CBB08EFD96DDDCA35F85D08ADC7A2F /* MessageViewController.xcconfig */,
+				F13D958197C185B2E05B89A28ACF7F9A /* MessageViewController-dummy.m */,
+				A49DE978024C59B3806D9FA0F83571EC /* MessageViewController-prefix.pch */,
+				E4C436AF795185CF66188C76AE8E086F /* MessageViewController-umbrella.h */,
 			);
-			name = Pod;
+			name = "Support Files";
+			path = "Examples/Pods/Target Support Files/MessageViewController";
 			sourceTree = "<group>";
 		};
 		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
@@ -211,11 +214,11 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		317C37BDF2696EAA8CF0FCA0DA847C6A /* Headers */ = {
+		59E0F9F97176E61B958B373BA3EC8DE4 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1BF8AC0DC8F2AFF802FB6C4448A36A4 /* MessageViewController-umbrella.h in Headers */,
+				F31E2AC194AA0AA562D1BD90E8F7A9FD /* MessageViewController-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +233,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		47EDC1A36C990546A95696AD98450635 /* MessageViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9E9D28C4F11B5242D1D6EAAEA04342EC /* Build configuration list for PBXNativeTarget "MessageViewController" */;
+			buildPhases = (
+				2406B545C4E786FDA1F84FB3117F2AFB /* Sources */,
+				128CA2E25304F83C217A432957189F4F /* Frameworks */,
+				59E0F9F97176E61B958B373BA3EC8DE4 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MessageViewController;
+			productName = MessageViewController;
+			productReference = 9F7CA8A37DAB011181174507244B8DDB /* MessageViewController.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		AD38A86F1144BA00798EEB70C6168952 /* Pods-Examples */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6DFFE0C37BE6DD75CAE4E48F2FC1C3D6 /* Build configuration list for PBXNativeTarget "Pods-Examples" */;
@@ -246,23 +266,6 @@
 			name = "Pods-Examples";
 			productName = "Pods-Examples";
 			productReference = C711475B7A4F0F74CFD0D19DEC518676 /* Pods_Examples.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		BF0CA67FDDC73C6AFCA8B3900C3E0488 /* MessageViewController */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 12EE6C4F9B99C120D0B4077FEC434815 /* Build configuration list for PBXNativeTarget "MessageViewController" */;
-			buildPhases = (
-				9B8A3880DDD7FCDB73626E2D8A442603 /* Sources */,
-				41E90327E442BE171C2DDF8096E0ACE7 /* Frameworks */,
-				317C37BDF2696EAA8CF0FCA0DA847C6A /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = MessageViewController;
-			productName = MessageViewController;
-			productReference = 9F7CA8A37DAB011181174507244B8DDB /* MessageViewController.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -286,7 +289,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BF0CA67FDDC73C6AFCA8B3900C3E0488 /* MessageViewController */,
+				47EDC1A36C990546A95696AD98450635 /* MessageViewController */,
 				AD38A86F1144BA00798EEB70C6168952 /* Pods-Examples */,
 			);
 		};
@@ -301,22 +304,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9B8A3880DDD7FCDB73626E2D8A442603 /* Sources */ = {
+		2406B545C4E786FDA1F84FB3117F2AFB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03299A1CCCA758DE09EDFB35EE9893FA /* MessageAutocompleteController.swift in Sources */,
-				9A1B8F0F1137CBF920241ED8F4988BB7 /* MessageTextView.swift in Sources */,
-				C677101B4C4572F049A4E3F27C47B6BB /* MessageView.swift in Sources */,
-				811BED4A0739373D59F58CA319E9FC8F /* MessageViewController+MessageViewDelegate.swift in Sources */,
-				76A79C22A254E3834A91E6203C171D3E /* MessageViewController-dummy.m in Sources */,
-				350C932F65BEAF2CF3DF7AB358F0D20C /* MessageViewController.swift in Sources */,
-				348BCCFA0C495E3AF6D49D6428FB76F0 /* MessageViewDelegate.swift in Sources */,
-				18C4FFF14EFBB9DD42DA5444782772AC /* String+WordAtRange.swift in Sources */,
-				0FFF25BFCAC1D42FC916B3B653A55323 /* UIButton+BottomHeightOffset.swift in Sources */,
-				3275C3742F041B76FAEC79B0589897C1 /* UIScrollView+StopScrolling.swift in Sources */,
-				1B7AE02845B4458EE6CC7517786FB9F1 /* UITextView+Prefixes.swift in Sources */,
-				DB1D3CF49154EF4416CC1246FE4172EC /* UIView+iOS11.swift in Sources */,
+				8292B0109F5D42139CC88F8876755C0B /* MessageAutocompleteController.swift in Sources */,
+				B2EF6D06C6241A1C2B322696295C1F12 /* MessageTextView.swift in Sources */,
+				2EA1F25878203ABBDC3D32204BD6C924 /* MessageView.swift in Sources */,
+				48043ABFE79418EF931960ED29855796 /* MessageViewController+MessageViewDelegate.swift in Sources */,
+				7FDE8A5D2EF8E282D1A6452530E137CB /* MessageViewController-dummy.m in Sources */,
+				1BF30E8E48F1703881633ADF1D3668E0 /* MessageViewController.swift in Sources */,
+				F69A2FF839825859E66394B591A018E8 /* MessageViewDelegate.swift in Sources */,
+				D579113B22A93703CA6CF9BB6F4725DF /* NSAttributedString+ReplaceRange.swift in Sources */,
+				6D6F7C71D33AF6BA0424AC50F967D7F1 /* String+WordAtRange.swift in Sources */,
+				49533A4F96F222F89E7EA3EFDBE8668A /* UIButton+BottomHeightOffset.swift in Sources */,
+				B5E1C48814B6A0E0057C7399B60E6A1F /* UIScrollView+StopScrolling.swift in Sources */,
+				DD0F13CA430DB78B26A436C0A5F90ECB /* UITextView+Prefixes.swift in Sources */,
+				95924FE621C38A19A48516605DC9239F /* UIView+iOS11.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,7 +330,7 @@
 		D915368D0838E731634A39619F365857 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MessageViewController;
-			target = BF0CA67FDDC73C6AFCA8B3900C3E0488 /* MessageViewController */;
+			target = 47EDC1A36C990546A95696AD98450635 /* MessageViewController */;
 			targetProxy = D7225D3A80862D2B5AF8CECC24BCE9DD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -515,9 +519,9 @@
 			};
 			name = Debug;
 		};
-		5A6467664E493BC29B77884321F21743 /* Debug */ = {
+		9CEB38629B78DA0985C3F2B2D18B2BC5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DD133615851079A55F9E9378A98B3546 /* MessageViewController.xcconfig */;
+			baseConfigurationReference = 28CBB08EFD96DDDCA35F85D08ADC7A2F /* MessageViewController.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -546,9 +550,9 @@
 			};
 			name = Debug;
 		};
-		E7C5DE49824FD350B32C269529706D8C /* Release */ = {
+		B90BDB4FC43C44A0AAD94B3DA4C88810 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DD133615851079A55F9E9378A98B3546 /* MessageViewController.xcconfig */;
+			baseConfigurationReference = 28CBB08EFD96DDDCA35F85D08ADC7A2F /* MessageViewController.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -581,15 +585,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		12EE6C4F9B99C120D0B4077FEC434815 /* Build configuration list for PBXNativeTarget "MessageViewController" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5A6467664E493BC29B77884321F21743 /* Debug */,
-				E7C5DE49824FD350B32C269529706D8C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -604,6 +599,15 @@
 			buildConfigurations = (
 				147AC3194B0F6A48F522CB49D022DBCA /* Debug */,
 				3E544B95CE7FA945B119867DAE165629 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9E9D28C4F11B5242D1D6EAAEA04342EC /* Build configuration list for PBXNativeTarget "MessageViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CEB38629B78DA0985C3F2B2D18B2BC5 /* Debug */,
+				B90BDB4FC43C44A0AAD94B3DA4C88810 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
