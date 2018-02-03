@@ -16,19 +16,35 @@ class String_WordAtRangeTests: XCTestCase {
         // 16 characters
         let text = "foo bar\nbaz bang"
 
-        let begin = text.wordParts(text.index(text.startIndex, offsetBy: 0) ..< text.index(text.startIndex, offsetBy: 0))
+        let begin = text.wordParts(
+            text.index(text.startIndex, offsetBy: 0)
+            ..<
+            text.index(text.startIndex, offsetBy: 0)
+        )
         XCTAssertEqual(begin?.left, "")
         XCTAssertEqual(begin?.right, "foo")
 
-        let middle = text.wordParts(text.index(text.startIndex, offsetBy: 5) ..< text.index(text.startIndex, offsetBy: 5))
+        let middle = text.wordParts(
+            text.index(text.startIndex, offsetBy: 5)
+            ..<
+            text.index(text.startIndex, offsetBy: 5)
+        )
         XCTAssertEqual(middle?.left, "b")
         XCTAssertEqual(middle?.right, "ar")
 
-        let newline = text.wordParts(text.index(text.startIndex, offsetBy: 10) ..< text.index(text.startIndex, offsetBy: 10))
+        let newline = text.wordParts(
+            text.index(text.startIndex, offsetBy: 10)
+            ..<
+            text.index(text.startIndex, offsetBy: 10)
+        )
         XCTAssertEqual(newline?.left, "ba")
         XCTAssertEqual(newline?.right, "z")
 
-        let end = text.wordParts(text.index(text.startIndex, offsetBy: 16) ..< text.index(text.startIndex, offsetBy: 16))
+        let end = text.wordParts(
+            text.index(text.startIndex, offsetBy: 16)
+            ..<
+            text.index(text.startIndex, offsetBy: 16)
+        )
         XCTAssertEqual(end?.left, "bang")
         XCTAssertEqual(end?.right, "")
     }
@@ -37,19 +53,35 @@ class String_WordAtRangeTests: XCTestCase {
         // 16 characters
         let text = "foo bar\nbaz bang"
 
-        let begin = text.wordParts(text.index(text.startIndex, offsetBy: 0) ..< text.index(text.startIndex, offsetBy: 1))
+        let begin = text.wordParts(
+            text.index(text.startIndex, offsetBy: 0)
+            ..<
+            text.index(text.startIndex, offsetBy: 1)
+        )
         XCTAssertEqual(begin?.left, "f")
         XCTAssertEqual(begin?.right, "oo")
 
-        let middle = text.wordParts(text.index(text.startIndex, offsetBy: 0) ..< text.index(text.startIndex, offsetBy: 5))
+        let middle = text.wordParts(
+            text.index(text.startIndex, offsetBy: 0)
+            ..<
+            text.index(text.startIndex, offsetBy: 5)
+        )
         XCTAssertEqual(middle?.left, "b")
         XCTAssertEqual(middle?.right, "ar")
 
-        let newline = text.wordParts(text.index(text.startIndex, offsetBy: 6) ..< text.index(text.startIndex, offsetBy: 10))
+        let newline = text.wordParts(
+            text.index(text.startIndex, offsetBy: 6)
+            ..<
+            text.index(text.startIndex, offsetBy: 10)
+        )
         XCTAssertEqual(newline?.left, "ba")
         XCTAssertEqual(newline?.right, "z")
 
-        let end = text.wordParts(text.index(text.startIndex, offsetBy: 15) ..< text.index(text.startIndex, offsetBy: 16))
+        let end = text.wordParts(
+            text.index(text.startIndex, offsetBy: 15)
+            ..<
+            text.index(text.startIndex, offsetBy: 16)
+        )
         XCTAssertEqual(end?.left, "bang")
         XCTAssertEqual(end?.right, "")
     }
