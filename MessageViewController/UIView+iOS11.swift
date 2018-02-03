@@ -8,7 +8,7 @@
 import UIKit
 
 internal extension UIView {
-
+    // swiftlint:disable:next identifier_name
     var util_safeAreaInsets: UIEdgeInsets {
         if #available(iOS 11.0, *) {
             return safeAreaInsets
@@ -20,7 +20,7 @@ internal extension UIView {
 }
 
 internal extension UIScrollView {
-
+    // swiftlint:disable:next identifier_name
     var util_adjustedContentInset: UIEdgeInsets {
         if #available(iOS 11.0, *) {
             return adjustedContentInset
