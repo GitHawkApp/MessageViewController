@@ -41,7 +41,11 @@ class ViewController: MessageViewController, UITableViewDataSource, UITableViewD
         
         // Set custom attributes for an autocompleted string
         let tintColor = UIColor(red: 0, green: 122/255, blue: 1, alpha: 1)
-        messageAutocompleteController.autocompleteTextAttributes = ["@": [.font: UIFont.preferredFont(forTextStyle: .body), .foregroundColor: tintColor, .backgroundColor: tintColor.withAlphaComponent(0.1)]]
+        messageAutocompleteController.registerAutocomplete(prefix: "@", attributes: [
+            .font: UIFont.preferredFont(forTextStyle: .body),
+            .foregroundColor: tintColor,
+            .backgroundColor: tintColor.withAlphaComponent(0.1)
+            ])
         
         messageAutocompleteController.delegate = self
 
