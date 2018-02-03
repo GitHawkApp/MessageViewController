@@ -1,0 +1,4 @@
+included:
+  - MessageViewController
+  - MessageViewControllerTests
+  - Examples
