@@ -1,0 +1,20 @@
+version: 2
+jobs:
+  build:
+    macos:
+      xcode: "9.2.0"
+    shell: /bin/bash --login -eo pipefail
+    steps:
+      - checkout
+      - run:
+          name: Set Ruby Version
+          command: echo "ruby-2.4" > ~/.ruby-version
+
+      - run:
+          name: Install Dependencies
+          command: bundle install
+
+      - run:
+          name: Run Danger
+          command: bundle exec danger
+          when: always
