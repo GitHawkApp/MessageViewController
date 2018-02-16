@@ -46,8 +46,17 @@ public final class MessageAutocompleteController: MessageTextViewListener {
     private var typingTextAttributes: [NSAttributedStringKey: Any] {
         var attributes = defaultTextAttributes
         attributes[NSAttributedAutocompleteKey] = false
+        attributes[.paragraphStyle] = paragraphStyle
         return attributes
     }
+    
+    /// The NSAttributedStringKey.paragraphStyle value applied to attributed strings
+    private let paragraphStyle: NSMutableParagraphStyle = {
+        let style = NSMutableParagraphStyle()
+        style.paragraphSpacingBefore = 2
+        style.lineHeightMultiple = 1
+        return style
+    }()
 
     internal var registeredPrefixes = Set<String>()
     internal let border = CALayer()
@@ -165,6 +174,7 @@ public final class MessageAutocompleteController: MessageTextViewListener {
 
     public func registerAutocomplete(prefix: String, attributes: [NSAttributedStringKey: Any]) {
         autocompleteTextAttributes[prefix] = attributes
+        autocompleteTextAttributes[prefix]?[.paragraphStyle] = paragraphStyle
     }
 
     // MARK: Private API
