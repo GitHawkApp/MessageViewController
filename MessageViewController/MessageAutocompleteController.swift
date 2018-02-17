@@ -237,25 +237,24 @@ public final class MessageAutocompleteController: MessageTextViewListener {
     
     public func willChangeRange(textView: MessageTextView, to range: NSRange) {
         
-        // range.length > 0: Backspace/removing text
+        // range.length == 1: Remove single character
         // range.lowerBound < textView.selectedRange.lowerBound: Ignore trying to delete
         //      the substring if the user is already doing so
-        if range.length > 0, range.lowerBound < textView.selectedRange.lowerBound {
+        if range.length == 1, range.lowerBound < textView.selectedRange.lowerBound {
             
             // Backspace/removing text
             let attribute = textView.attributedText
                 .attributes(at: range.lowerBound, longestEffectiveRange: nil, in: range)
                 .filter { return $0.key == NSAttributedAutocompleteKey }
-            
-            if (attribute[NSAttributedAutocompleteKey] as? Bool ?? false) == true {
-                
+
+            if let isAutocomplete = attribute[NSAttributedAutocompleteKey] as? Bool, isAutocomplete {
                 // Remove the autocompleted substring
                 let lowerRange = NSRange(location: 0, length: range.location + 1)
                 textView.attributedText.enumerateAttribute(NSAttributedAutocompleteKey, in: lowerRange, options: .reverse, using: { (_, range, stop) in
-                    
+
                     // Only delete the first found range
                     defer { stop.pointee = true }
-                    
+
                     let emptyString = NSAttributedString(string: "", attributes: typingTextAttributes)
                     textView.attributedText = textView.attributedText.replacingCharacters(in: range, with: emptyString)
                     textView.selectedRange = NSRange(location: range.location, length: 0)
