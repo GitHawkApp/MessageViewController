@@ -7,6 +7,6 @@ Pod::Spec.new do |spec|
   spec.summary      = 'Replacement for SlackTextViewController.'
   spec.source       = { :git => 'https://github.com/GitHawkApp/MessageViewController.git', :tag => spec.version.to_s }
   spec.source_files = 'MessageViewController/*.swift'
-  spec.platform     = :ios, '10.0'
+  spec.platform     = :ios, '9.0'
   spec.swift_version = '4.0'
 end
