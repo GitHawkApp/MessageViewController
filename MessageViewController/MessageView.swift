@@ -20,14 +20,7 @@ public final class MessageView: UIView, MessageTextViewListener {
     internal var contentView: UIView?
     internal var leftButtonAction: Selector?
     internal var rightButtonAction: Selector?
-    public var showLeftButton: Bool = true {
-        didSet {
-            if !showLeftButton {
-                leftButton.removeFromSuperview()
-                setNeedsLayout()
-            }
-        }
-    }
+    public var showLeftButton: Bool = true
 
     public enum buttonType {
         case left
@@ -39,9 +32,7 @@ public final class MessageView: UIView, MessageTextViewListener {
 
         backgroundColor = .white
 
-        if showLeftButton {
-            addSubview(leftButton)
-        }
+        addSubview(leftButton)
         addSubview(textView)
         addSubview(rightButton)
         layer.addSublayer(topBorderLayer)
@@ -96,6 +87,8 @@ public final class MessageView: UIView, MessageTextViewListener {
     public var font: UIFont? {
         get { return textView.font }
         set {
+            leftButton.titleLabel?.font = newValue
+            rightButton.titleLabel?.font = newValue
             textView.font = newValue
             delegate?.wantsLayout(messageView: self)
         }
