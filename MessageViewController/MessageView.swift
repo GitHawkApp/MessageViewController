@@ -20,6 +20,14 @@ public final class MessageView: UIView, MessageTextViewListener {
     internal var contentView: UIView?
     internal var leftButtonAction: Selector?
     internal var rightButtonAction: Selector?
+    public var showLeftButton: Bool = true {
+        didSet {
+            if !showLeftButton {
+                leftButton.removeFromSuperview()
+                setNeedsLayout()
+            }
+        }
+    }
 
     public enum buttonType {
         case left
@@ -31,7 +39,9 @@ public final class MessageView: UIView, MessageTextViewListener {
 
         backgroundColor = .white
 
-        addSubview(leftButton)
+        if showLeftButton {
+            addSubview(leftButton)
+        }
         addSubview(textView)
         addSubview(rightButton)
         layer.addSublayer(topBorderLayer)
@@ -40,13 +50,16 @@ public final class MessageView: UIView, MessageTextViewListener {
         leftButton.imageEdgeInsets = .zero
         leftButton.titleEdgeInsets = .zero
         leftButton.contentEdgeInsets = .zero
+        leftButton.titleLabel?.font = self.font ?? UIFont.systemFont(ofSize: 14)
+        leftButton.imageView?.contentMode = .scaleAspectFit
+        leftButton.imageView?.clipsToBounds = true
 
         // setup text view
         textView.contentInset = .zero
         textView.textContainerInset = .zero
         textView.backgroundColor = .clear
         textView.addObserver(self, forKeyPath: UITextViewContentSizeKeyPath, options: [.new], context: nil)
-        textView.font = .systemFont(ofSize: UIFont.systemFontSize)
+        textView.font = self.font ?? UIFont.systemFont(ofSize: 14)
         textView.add(listener: self)
 
         // setup TextKit props to defaults
@@ -63,6 +76,9 @@ public final class MessageView: UIView, MessageTextViewListener {
         rightButton.imageEdgeInsets = .zero
         rightButton.titleEdgeInsets = .zero
         rightButton.contentEdgeInsets = .zero
+        rightButton.titleLabel?.font = self.font ?? UIFont.systemFont(ofSize: 14)
+        rightButton.imageView?.contentMode = .scaleAspectFit
+        rightButton.imageView?.clipsToBounds = true
 
         updateEmptyTextStates()
     }
@@ -114,6 +130,7 @@ public final class MessageView: UIView, MessageTextViewListener {
                 setRight(buttonIcon: buttonIcon, for: state)
                 break
         }
+        buttonLayoutDidChange()
     }
 
     public func set(buttonTitle: String, for state: UIControlState, type: buttonType) {
@@ -125,26 +142,23 @@ public final class MessageView: UIView, MessageTextViewListener {
             setRight(buttonTitle: buttonTitle, for: state)
             break
         }
+        buttonLayoutDidChange()
     }
 
     private func setLeft(buttonIcon: UIImage?, for state: UIControlState) {
         leftButton.setImage(buttonIcon, for: state)
-        buttonLayoutDidChange()
     }
 
     private func setLeft(buttonTitle: String, for state: UIControlState) {
         leftButton.setTitle(buttonTitle, for: state)
-        buttonLayoutDidChange()
     }
 
     private func setRight(buttonIcon: UIImage?, for state: UIControlState) {
         rightButton.setImage(buttonIcon, for: state)
-        buttonLayoutDidChange()
     }
 
     private func setRight(buttonTitle: String, for state: UIControlState) {
         rightButton.setTitle(buttonTitle, for: state)
-        buttonLayoutDidChange()
     }
 
     public var leftButtonTint: UIColor {
@@ -184,9 +198,17 @@ public final class MessageView: UIView, MessageTextViewListener {
         set { textView.keyboardType = newValue }
     }
 
-    public func addButton(target: Any, action: Selector) {
-        rightButton.addTarget(target, action: action, for: .touchUpInside)
-        rightButtonAction = action
+    public func addButton(target: Any, action: Selector, type: buttonType) {
+        switch type {
+        case .left:
+            leftButton.addTarget(target, action: action, for: .touchUpInside)
+            leftButtonAction = action
+            break
+        case .right:
+            rightButton.addTarget(target, action: action, for: .touchUpInside)
+            rightButtonAction = action
+            break
+        }
     }
 
     public override var keyCommands: [UIKeyCommand]? {
@@ -214,22 +236,23 @@ public final class MessageView: UIView, MessageTextViewListener {
         )
         let insetBounds = UIEdgeInsetsInsetRect(safeBounds, inset)
 
-        let leftButtonSize = leftButton.bounds.size
+        let size = textView.font?.lineHeight ?? 25 //Use textView line height
+        let leftButtonSize = CGSize(width: size, height: size)
         let rightButtonSize = rightButton.bounds.size
-
+        
         // adjust by bottom offset so content is flush w/ text view
         let leftButtonFrame = CGRect(
-                x: insetBounds.minX,
-                y: insetBounds.minY,
-                width: leftButtonSize.width,
-                height: leftButtonSize.height
+            x: insetBounds.minX,
+            y: (insetBounds.minY + textViewHeight) - leftButtonSize.height + leftButton.bottomHeightOffset,
+            width: leftButtonSize.width,
+            height: leftButtonSize.height
         )
-        leftButton.frame = leftButtonFrame
-
+        leftButton.frame = (showLeftButton) ? leftButtonFrame : .zero
+        
         let textViewFrame = CGRect(
-            x: leftButtonFrame.maxX + buttonLeftInset,
+            x: ((showLeftButton) ? leftButtonFrame.maxX : 0) + buttonLeftInset,
             y: insetBounds.minY,
-            width: insetBounds.width - leftButtonSize.width - buttonLeftInset - rightButtonSize.width,
+            width: insetBounds.width - ((showLeftButton) ? leftButtonSize.width : 0) - buttonLeftInset - rightButtonSize.width,
             height: textViewHeight
         )
         textView.frame = textViewFrame

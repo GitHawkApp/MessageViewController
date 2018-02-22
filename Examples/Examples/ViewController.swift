@@ -24,18 +24,22 @@ class ViewController: MessageViewController, UITableViewDataSource, UITableViewD
         view.addSubview(tableView)
 
         borderColor = .lightGray
+        
+        messageView.buttonLeftInset = 8
 
-        messageView.set(buttonTitle: "A", for: .normal, type: .left)
-        messageView.
+        messageView.set(buttonIcon: UIImage(named: "attachment"), for: .normal, type: .left)
+        messageView.addButton(target: self, action: #selector(onLeftButton), type: .left)
+        messageView.showLeftButton = true
 
-        messageView.inset = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
+        messageView.inset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 16)
         messageView.textView.placeholderText = "New message..."
         messageView.textView.placeholderTextColor = .lightGray
-        messageView.font = UIFont.systemFont(ofSize: 17)
+        messageView.textView.backgroundColor = .white
+        messageView.font = UIFont.preferredFont(forTextStyle: .body)
 
-//        messageView.set(buttonTitle: "Send", for: .normal)
-//        messageView.addButton(target: self, action: #selector(onButton))
-//        messageView.buttonTint = .blue
+        messageView.set(buttonTitle: "Send", for: .normal, type: .right)
+        messageView.addButton(target: self, action: #selector(onRightButton), type: .right)
+        messageView.rightButtonTint = .blue
 
         messageAutocompleteController.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         messageAutocompleteController.tableView.dataSource = self
@@ -55,7 +59,11 @@ class ViewController: MessageViewController, UITableViewDataSource, UITableViewD
         setup(scrollView: tableView)
     }
 
-    @objc func onButton() {
+    @objc func onLeftButton() {
+        print("Did press left button")
+    }
+
+    @objc func onRightButton() {
         data.append(messageView.text)
         messageView.text = ""
         tableView.reloadData()
