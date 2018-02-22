@@ -24,18 +24,18 @@ class ViewController: MessageViewController, UITableViewDataSource, UITableViewD
         view.addSubview(tableView)
 
         borderColor = .lightGray
-        
+
+        messageView.inset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 16)
+        messageView.font = UIFont.preferredFont(forTextStyle: .body)
         messageView.buttonLeftInset = 8
 
         messageView.set(buttonIcon: UIImage(named: "attachment"), for: .normal, type: .left)
         messageView.addButton(target: self, action: #selector(onLeftButton), type: .left)
         messageView.showLeftButton = true
 
-        messageView.inset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 16)
         messageView.textView.placeholderText = "New message..."
         messageView.textView.placeholderTextColor = .lightGray
         messageView.textView.backgroundColor = .white
-        messageView.font = UIFont.preferredFont(forTextStyle: .body)
 
         messageView.set(buttonTitle: "Send", for: .normal, type: .right)
         messageView.addButton(target: self, action: #selector(onRightButton), type: .right)
