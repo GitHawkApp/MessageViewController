@@ -25,14 +25,17 @@ class ViewController: MessageViewController, UITableViewDataSource, UITableViewD
 
         borderColor = .lightGray
 
+        messageView.set(buttonTitle: "A", for: .normal, type: .left)
+        messageView.
+
         messageView.inset = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
         messageView.textView.placeholderText = "New message..."
         messageView.textView.placeholderTextColor = .lightGray
         messageView.font = UIFont.systemFont(ofSize: 17)
 
-        messageView.set(buttonTitle: "Send", for: .normal)
-        messageView.addButton(target: self, action: #selector(onButton))
-        messageView.buttonTint = .blue
+//        messageView.set(buttonTitle: "Send", for: .normal)
+//        messageView.addButton(target: self, action: #selector(onButton))
+//        messageView.buttonTint = .blue
 
         messageAutocompleteController.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         messageAutocompleteController.tableView.dataSource = self
