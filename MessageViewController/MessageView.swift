@@ -80,6 +80,15 @@ public final class MessageView: UIView, MessageTextViewListener {
             updateEmptyTextStates()
         }
     }
+    
+    public var attributedText: NSAttributedString {
+        get { return textView.attributedText }
+        set {
+            textView.attributedText = newValue
+            delegate?.wantsLayout(messageView: self)
+            updateEmptyTextStates()
+        }
+    }
 
     public var inset: UIEdgeInsets = .zero {
         didSet {

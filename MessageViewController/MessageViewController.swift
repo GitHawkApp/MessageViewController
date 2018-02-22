@@ -33,7 +33,7 @@ open class MessageViewController: UIViewController, MessageAutocompleteControlle
 
     open override func viewDidLoad() {
         super.viewDidLoad()
-        messageView.text = cachedText ?? ""
+        messageView.attributedText = cachedAttributedText ?? NSAttributedString()
     }
 
     open override func viewWillDisappear(_ animated: Bool) {
@@ -140,18 +140,18 @@ open class MessageViewController: UIViewController, MessageAutocompleteControlle
 
     internal func cache() {
         guard let key = fullCacheKey else { return }
-        let text = messageView.text.trimmingCharacters(in: .whitespacesAndNewlines)
+        let attributedText = messageView.attributedText
         let defaults = UserDefaults.standard
-        if text.isEmpty {
+        if attributedText.string.isEmpty {
             defaults.removeObject(forKey: key)
         } else {
-            defaults.set(text, forKey: key)
+            defaults.set(attributedText, forKey: key)
         }
     }
 
-    var cachedText: String? {
+    var cachedAttributedText: NSAttributedString? {
         guard let key = fullCacheKey else { return nil }
-        return UserDefaults.standard.string(forKey: key)
+        return UserDefaults.standard.value(forKey: key) as? NSAttributedString
     }
 
     // MARK: Notifications
