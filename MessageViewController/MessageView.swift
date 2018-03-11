@@ -81,11 +81,13 @@ public final class MessageView: UIView, MessageTextViewListener {
         }
     }
 
-    public var inset: UIEdgeInsets = .zero {
-        didSet {
+    public var inset: UIEdgeInsets {
+        set {
+            textView.textContainerInset = newValue
             setNeedsLayout()
             delegate?.wantsLayout(messageView: self)
         }
+        get { return textView.textContainerInset }
     }
 
     public var buttonLeftInset: CGFloat = 0 {
@@ -159,22 +161,19 @@ public final class MessageView: UIView, MessageTextViewListener {
             width: bounds.width - util_safeAreaInsets.left - util_safeAreaInsets.right,
             height: bounds.height
         )
-        let insetBounds = UIEdgeInsetsInsetRect(safeBounds, inset)
-
         let buttonSize = button.bounds.size
-
         let textViewFrame = CGRect(
-            x: insetBounds.minX,
-            y: insetBounds.minY,
-            width: insetBounds.width - buttonSize.width - buttonLeftInset,
+            x: safeBounds.minX,
+            y: safeBounds.minY,
+            width: safeBounds.width - buttonSize.width - buttonLeftInset,
             height: textViewHeight
         )
         textView.frame = textViewFrame
 
         // adjust by bottom offset so content is flush w/ text view
         button.frame = CGRect(
-            x: textViewFrame.maxX + buttonLeftInset,
-            y: textViewFrame.maxY - buttonSize.height + button.bottomHeightOffset,
+            x: textViewFrame.maxX + buttonLeftInset - inset.right,
+            y: textViewFrame.maxY - buttonSize.height + button.bottomHeightOffset - inset.bottom,
             width: buttonSize.width,
             height: buttonSize.height
         )
@@ -201,14 +200,17 @@ public final class MessageView: UIView, MessageTextViewListener {
     // MARK: Private API
 
     internal var height: CGFloat {
-        return inset.top
-            + inset.bottom
-            + textViewHeight
-            + (contentView?.bounds.height ?? 0)
+        return textViewHeight + (contentView?.bounds.height ?? 0)
     }
 
     internal var textViewHeight: CGFloat {
-        return min(maxHeight, max(textView.font?.lineHeight ?? 0, textView.contentSize.height))
+        return ceil(min(
+            maxHeight,
+            max(
+                textView.font?.lineHeight ?? 0,
+                textView.contentSize.height
+            )
+        ))
     }
 
     internal var maxHeight: CGFloat {
