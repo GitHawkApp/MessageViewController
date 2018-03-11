@@ -28,6 +28,9 @@ public final class MessageView: UIView, MessageTextViewListener {
         case right
     }
 
+    internal var buttonAction: Selector?
+    internal var keyboardHeight: CGFloat = 0
+
     internal override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -164,6 +167,13 @@ public final class MessageView: UIView, MessageTextViewListener {
         }
     }
 
+    public var maxScreenRatio: CGFloat = 0 {
+        didSet {
+            maxScreenRatio = 0...1 ~= maxScreenRatio ? maxScreenRatio : 0
+            delegate?.wantsLayout(messageView: self)
+        }
+    }
+    
     public func add(contentView: UIView) {
         self.contentView?.removeFromSuperview()
         assert(contentView.bounds.height > 0, "Must have a non-zero content height")
@@ -295,19 +305,21 @@ public final class MessageView: UIView, MessageTextViewListener {
     internal var height: CGFloat {
         return textViewHeight + (contentView?.bounds.height ?? 0)
     }
-
-    internal var textViewHeight: CGFloat {
-        return ceil(min(
-            maxHeight,
-            max(
-                textView.font?.lineHeight ?? 0,
-                textView.contentSize.height
-            )
-        ))
-    }
-
-    internal var maxHeight: CGFloat {
+    
+    internal var maxLineHeight: CGFloat {
         return (font?.lineHeight ?? 0) * CGFloat(maxLineCount)
+    }
+    
+    internal var maxScreenHeight: CGFloat {
+        return maxScreenRatio * (superview?.frame.height ?? 0) - keyboardHeight
+    }
+    
+    internal var maxHeight: CGFloat {
+        return max(maxScreenRatio, maxLineHeight)
+    }
+    
+    internal var textViewHeight: CGFloat {
+        return ceil(min(maxHeight, max(textView.font?.lineHeight ?? 0, textView.contentSize.height)))
     }
 
     internal func updateEmptyTextStates() {
