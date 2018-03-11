@@ -31,6 +31,8 @@ public final class MessageView: UIView, MessageTextViewListener {
     internal var buttonAction: Selector?
     internal var keyboardHeight: CGFloat = 0
 
+    internal var heightOffset: CGFloat = 0
+    
     internal override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -311,11 +313,11 @@ public final class MessageView: UIView, MessageTextViewListener {
     }
     
     internal var maxScreenHeight: CGFloat {
-        return maxScreenRatio * (superview?.frame.height ?? 0) - keyboardHeight
+        return maxScreenRatio * (superview?.frame.height ?? 0) - heightOffset
     }
     
     internal var maxHeight: CGFloat {
-        return max(maxScreenRatio, maxLineHeight)
+        return max(maxScreenHeight, maxLineHeight)
     }
     
     internal var textViewHeight: CGFloat {
