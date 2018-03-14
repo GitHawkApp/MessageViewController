@@ -110,7 +110,7 @@ public final class MessageView: UIView, MessageTextViewListener {
         }
     }
 
-    public var buttonLeftInset: CGFloat = 0 {
+    public var leftButtonInset: CGFloat = 0 {
         didSet { setNeedsLayout() }
     }
 
@@ -243,16 +243,16 @@ public final class MessageView: UIView, MessageTextViewListener {
         leftButton.frame = (showLeftButton) ? leftButtonFrame : .zero
         
         let textViewFrame = CGRect(
-            x: ((showLeftButton) ? leftButtonFrame.maxX : 0) + buttonLeftInset,
+            x: ((showLeftButton) ? leftButtonFrame.maxX : 0) + leftButtonInset,
             y: insetBounds.minY,
-            width: insetBounds.width - ((showLeftButton) ? leftButtonSize.width : 0) - buttonLeftInset - rightButtonSize.width,
+            width: insetBounds.width - ((showLeftButton) ? leftButtonSize.width : 0) - leftButtonInset - rightButtonSize.width,
             height: textViewHeight
         )
         textView.frame = textViewFrame
 
         // adjust by bottom offset so content is flush w/ text view
         let rightButtonFrame = CGRect(
-            x: textViewFrame.maxX + buttonLeftInset,
+            x: textViewFrame.maxX + leftButtonInset,
             y: textViewFrame.maxY - rightButtonSize.height + rightButton.bottomHeightOffset,
             width: rightButtonSize.width,
             height: rightButtonSize.height
