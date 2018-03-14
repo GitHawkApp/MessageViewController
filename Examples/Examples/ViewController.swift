@@ -27,7 +27,7 @@ class ViewController: MessageViewController, UITableViewDataSource, UITableViewD
 
         messageView.inset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 16)
         messageView.font = UIFont.preferredFont(forTextStyle: .body)
-        messageView.buttonLeftInset = 8
+        messageView.leftButtonInset = 8
 
         messageView.set(buttonIcon: UIImage(named: "attachment"), for: .normal, type: .left)
         messageView.addButton(target: self, action: #selector(onLeftButton), type: .left)
