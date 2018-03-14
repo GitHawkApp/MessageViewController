@@ -115,22 +115,28 @@ public final class MessageView: UIView, MessageTextViewListener {
     }
 
     public func set(buttonIcon: UIImage?, for state: UIControlState, type: buttonType) {
+        let button: UIButton
         switch type {
         case .left:
-            leftButton.setImage(buttonIcon, for: state)
+            button = leftButton
         case .right:
-            rightButton.setImage(buttonIcon, for: state)
+            button = rightButton
         }
+        
+        button.setImage(buttonIcon, for: state)
         buttonLayoutDidChange()
     }
 
     public func set(buttonTitle: String, for state: UIControlState, type: buttonType) {
+        let button: UIButton
         switch type {
         case .left:
-            leftButton.setTitle(buttonTitle, for: state)
+            button = leftButton
         case .right:
-            rightButton.setTitle(buttonTitle, for: state)
+            button = rightButton
         }
+        
+        button.setTitle(buttonTitle, for: state)
         buttonLayoutDidChange()
     }
 
@@ -172,14 +178,17 @@ public final class MessageView: UIView, MessageTextViewListener {
     }
 
     public func addButton(target: Any, action: Selector, type: buttonType) {
+        let button: UIButton
         switch type {
         case .left:
-            leftButton.addTarget(target, action: action, for: .touchUpInside)
+            button = leftButton
             leftButtonAction = action
         case .right:
-            rightButton.addTarget(target, action: action, for: .touchUpInside)
+            button = rightButton
             rightButtonAction = action
         }
+        
+        button.addTarget(target, action: action, for: .touchUpInside)
     }
 
     public override var keyCommands: [UIKeyCommand]? {
