@@ -116,12 +116,10 @@ public final class MessageView: UIView, MessageTextViewListener {
 
     public func set(buttonIcon: UIImage?, for state: UIControlState, type: buttonType) {
         switch type {
-            case .left:
-                setLeft(buttonIcon: buttonIcon, for: state)
-                break
-            case .right:
-                setRight(buttonIcon: buttonIcon, for: state)
-                break
+        case .left:
+            leftButton.setImage(buttonIcon, for: state)
+        case .right:
+            rightButton.setImage(buttonIcon, for: state)
         }
         buttonLayoutDidChange()
     }
@@ -129,29 +127,11 @@ public final class MessageView: UIView, MessageTextViewListener {
     public func set(buttonTitle: String, for state: UIControlState, type: buttonType) {
         switch type {
         case .left:
-            setLeft(buttonTitle: buttonTitle, for: state)
-            break
+            leftButton.setTitle(buttonTitle, for: state)
         case .right:
-            setRight(buttonTitle: buttonTitle, for: state)
-            break
+            rightButton.setTitle(buttonTitle, for: state)
         }
         buttonLayoutDidChange()
-    }
-
-    private func setLeft(buttonIcon: UIImage?, for state: UIControlState) {
-        leftButton.setImage(buttonIcon, for: state)
-    }
-
-    private func setLeft(buttonTitle: String, for state: UIControlState) {
-        leftButton.setTitle(buttonTitle, for: state)
-    }
-
-    private func setRight(buttonIcon: UIImage?, for state: UIControlState) {
-        rightButton.setImage(buttonIcon, for: state)
-    }
-
-    private func setRight(buttonTitle: String, for state: UIControlState) {
-        rightButton.setTitle(buttonTitle, for: state)
     }
 
     public var leftButtonTint: UIColor {
@@ -196,11 +176,9 @@ public final class MessageView: UIView, MessageTextViewListener {
         case .left:
             leftButton.addTarget(target, action: action, for: .touchUpInside)
             leftButtonAction = action
-            break
         case .right:
             rightButton.addTarget(target, action: action, for: .touchUpInside)
             rightButtonAction = action
-            break
         }
     }
 
