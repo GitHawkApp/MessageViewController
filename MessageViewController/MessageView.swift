@@ -110,48 +110,34 @@ public final class MessageView: UIView, MessageTextViewListener {
         }
     }
 
-    public var buttonLeftInset: CGFloat = 0 {
+    public var leftButtonInset: CGFloat = 0 {
         didSet { setNeedsLayout() }
     }
 
     public func set(buttonIcon: UIImage?, for state: UIControlState, type: buttonType) {
+        let button: UIButton
         switch type {
-            case .left:
-                setLeft(buttonIcon: buttonIcon, for: state)
-                break
-            case .right:
-                setRight(buttonIcon: buttonIcon, for: state)
-                break
+        case .left:
+            button = leftButton
+        case .right:
+            button = rightButton
         }
+        
+        button.setImage(buttonIcon, for: state)
         buttonLayoutDidChange()
     }
 
     public func set(buttonTitle: String, for state: UIControlState, type: buttonType) {
+        let button: UIButton
         switch type {
         case .left:
-            setLeft(buttonTitle: buttonTitle, for: state)
-            break
+            button = leftButton
         case .right:
-            setRight(buttonTitle: buttonTitle, for: state)
-            break
+            button = rightButton
         }
+        
+        button.setTitle(buttonTitle, for: state)
         buttonLayoutDidChange()
-    }
-
-    private func setLeft(buttonIcon: UIImage?, for state: UIControlState) {
-        leftButton.setImage(buttonIcon, for: state)
-    }
-
-    private func setLeft(buttonTitle: String, for state: UIControlState) {
-        leftButton.setTitle(buttonTitle, for: state)
-    }
-
-    private func setRight(buttonIcon: UIImage?, for state: UIControlState) {
-        rightButton.setImage(buttonIcon, for: state)
-    }
-
-    private func setRight(buttonTitle: String, for state: UIControlState) {
-        rightButton.setTitle(buttonTitle, for: state)
     }
 
     public var leftButtonTint: UIColor {
@@ -192,16 +178,17 @@ public final class MessageView: UIView, MessageTextViewListener {
     }
 
     public func addButton(target: Any, action: Selector, type: buttonType) {
+        let button: UIButton
         switch type {
         case .left:
-            leftButton.addTarget(target, action: action, for: .touchUpInside)
+            button = leftButton
             leftButtonAction = action
-            break
         case .right:
-            rightButton.addTarget(target, action: action, for: .touchUpInside)
+            button = rightButton
             rightButtonAction = action
-            break
         }
+        
+        button.addTarget(target, action: action, for: .touchUpInside)
     }
 
     public override var keyCommands: [UIKeyCommand]? {
@@ -243,16 +230,16 @@ public final class MessageView: UIView, MessageTextViewListener {
         leftButton.frame = (showLeftButton) ? leftButtonFrame : .zero
         
         let textViewFrame = CGRect(
-            x: ((showLeftButton) ? leftButtonFrame.maxX : 0) + buttonLeftInset,
+            x: ((showLeftButton) ? leftButtonFrame.maxX : 0) + leftButtonInset,
             y: insetBounds.minY,
-            width: insetBounds.width - ((showLeftButton) ? leftButtonSize.width : 0) - buttonLeftInset - rightButtonSize.width,
+            width: insetBounds.width - ((showLeftButton) ? leftButtonSize.width : 0) - leftButtonInset - rightButtonSize.width,
             height: textViewHeight
         )
         textView.frame = textViewFrame
 
         // adjust by bottom offset so content is flush w/ text view
         let rightButtonFrame = CGRect(
-            x: textViewFrame.maxX + buttonLeftInset,
+            x: textViewFrame.maxX + leftButtonInset,
             y: textViewFrame.maxY - rightButtonSize.height + rightButton.bottomHeightOffset,
             width: rightButtonSize.width,
             height: rightButtonSize.height
