@@ -28,9 +28,6 @@ public final class MessageView: UIView, MessageTextViewListener {
         case right
     }
 
-    internal var buttonAction: Selector?
-    internal var keyboardHeight: CGFloat = 0
-
     internal var heightOffset: CGFloat = 0
     
     internal override init(frame: CGRect) {
