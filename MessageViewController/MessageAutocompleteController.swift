@@ -73,7 +73,7 @@ public final class MessageAutocompleteController: MessageTextViewListener {
         notificationCenter.addObserver(
             self,
             selector: #selector(keyboardWillChangeFrame(notification:)),
-            name: NSNotification.Name.UIKeyboardWillChangeFrame,
+            name: .UIKeyboardWillChangeFrame,
             object: nil
         )
     }
