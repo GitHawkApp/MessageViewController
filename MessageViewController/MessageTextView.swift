@@ -19,6 +19,8 @@ open class MessageTextView: UITextView, UITextViewDelegate {
 
     private var listeners: NSHashTable<AnyObject> = NSHashTable.weakObjects()
 
+    private let interactiveFormatter = InteractiveTextFormatter()
+
     open override var delegate: UITextViewDelegate? {
         get { return self }
         set {}
@@ -135,7 +137,15 @@ open class MessageTextView: UITextView, UITextViewDelegate {
     
     public func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         enumerateListeners { $0.willChangeRange(textView: self, to: range) }
-        return true
+        
+        if let (newAttrText, insertionEnd) = interactiveFormatter.applying(change: text, in: textView.attributedText, in: range) {
+            textView.attributedText = newAttrText
+            let selectionPos = textView.position(from: textView.beginningOfDocument, offset: insertionEnd) ?? textView.beginningOfDocument
+            textView.selectedTextRange = textView.textRange(from: selectionPos, to: selectionPos)
+            return false
+        } else {
+            return true
+        }
     }
 
 }
