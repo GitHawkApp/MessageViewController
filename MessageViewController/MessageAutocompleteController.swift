@@ -233,7 +233,7 @@ public final class MessageAutocompleteController: MessageTextViewListener {
         preserveTypingAttributes(for: textView)
     }
     
-    public func willChangeRange(textView: MessageTextView, to range: NSRange) {
+    public func willChangeText(textView: MessageTextView, inRange range: NSRange, to: String) -> Bool {
         
         // range.length == 1: Remove single character
         // range.lowerBound < textView.selectedRange.lowerBound: Ignore trying to delete
@@ -261,6 +261,7 @@ public final class MessageAutocompleteController: MessageTextViewListener {
                 })
             }
         }
+        return true
     }
 
 }
