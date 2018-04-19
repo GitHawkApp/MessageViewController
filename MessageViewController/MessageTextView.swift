@@ -10,7 +10,7 @@ import UIKit
 public protocol MessageTextViewListener: class {
     func didChange(textView: MessageTextView)
     func didChangeSelection(textView: MessageTextView)
-    func willChangeText(textView: MessageTextView, inRange: NSRange, to: String) -> Bool
+    func willChangeRange(textView: MessageTextView, to range: NSRange)
 }
 
 open class MessageTextView: UITextView, UITextViewDelegate {
@@ -134,13 +134,8 @@ open class MessageTextView: UITextView, UITextViewDelegate {
     }
     
     public func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        // If listener changes text then subsequent listeners will probably get incorrect affected range
-        // and text as they were changed by previous listener. So be careful playing with textView
-        var shouldChange = true
-        // if at least one listener changes text and needs to ignore typed text then this method returns
-        // that just typed text needs to be ignored
-        enumerateListeners { shouldChange = shouldChange && $0.willChangeText(textView: self, inRange: range, to: text) }
-        return shouldChange
+        enumerateListeners { $0.willChangeRange(textView: self, to: range) }
+        return true
     }
 
 }

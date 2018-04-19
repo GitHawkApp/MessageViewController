@@ -361,8 +361,6 @@ public final class MessageView: UIView, MessageTextViewListener {
         delegate?.selectionDidChange(messageView: self)
     }
     
-    public func willChangeText(textView: MessageTextView, inRange: NSRange, to: String) -> Bool {
-        return true
-    }
+    public func willChangeRange(textView: MessageTextView, to range: NSRange) {}
 
 }
