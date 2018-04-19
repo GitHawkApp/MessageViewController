@@ -233,7 +233,7 @@ public final class MessageAutocompleteController: MessageTextViewListener {
         preserveTypingAttributes(for: textView)
     }
     
-    public func willChangeRange(textView: MessageTextView, to range: NSRange) {
+    public func willChangeText(textView: MessageTextView, inRange range: NSRange, to: String) -> Bool {
         
         // range.length == 1: Remove single character
         // range.lowerBound < textView.selectedRange.lowerBound: Ignore trying to delete
@@ -248,6 +248,7 @@ public final class MessageAutocompleteController: MessageTextViewListener {
             if let isAutocomplete = attribute[NSAttributedAutocompleteKey] as? Bool, isAutocomplete {
                 // Remove the autocompleted substring
                 let lowerRange = NSRange(location: 0, length: range.location + 1)
+                var shouldPreserveTypedText = true
                 textView.attributedText.enumerateAttribute(NSAttributedAutocompleteKey, in: lowerRange, options: .reverse, using: { (_, range, stop) in
 
                     // Only delete the first found range
@@ -258,9 +259,12 @@ public final class MessageAutocompleteController: MessageTextViewListener {
                     textView.selectedRange = NSRange(location: range.location, length: 0)
                     self.textView.textViewDidChange(textView)
                     self.preserveTypingAttributes(for: textView)
+                    shouldPreserveTypedText = false
                 })
+                return shouldPreserveTypedText
             }
         }
+        return true
     }
 
 }
