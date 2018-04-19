@@ -166,7 +166,8 @@ open class MessageViewController: UIViewController, MessageAutocompleteControlle
 
         let previousKeyboardHeight = keyboardHeight
         keyboardHeight = keyboardFrame.height
-
+        messageView.heightOffset = keyboardHeight + (scrollView?.util_safeAreaInsets.top ?? 0)
+        
         UIView.animate(withDuration: animationDuration) {
             guard let scrollView = self.scrollView else { return }
             // capture before changing the frame which might have weird side effects

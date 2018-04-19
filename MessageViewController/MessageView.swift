@@ -22,12 +22,15 @@ public final class MessageView: UIView, MessageTextViewListener {
     internal var rightButtonAction: Selector?
     internal var leftButtonInset: CGFloat = 0
     internal var rightButtonInset: CGFloat = 0
-
+    internal var ignoreLineHeight = false
+    
     public enum ButtonPosition {
         case left
         case right
     }
 
+    internal var heightOffset: CGFloat = 0
+    
     internal override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -163,13 +166,27 @@ public final class MessageView: UIView, MessageTextViewListener {
             rightButton.imageView?.tintColor = newValue
         }
     }
-
-    public var maxLineCount: Int = 4 {
+    
+    public var maxHeight: CGFloat = CGFloat.greatestFiniteMagnitude {
         didSet {
             delegate?.wantsLayout(messageView: self)
         }
     }
+    
+    public var maxLineCount: Int = 4 {
+        didSet {
+            ignoreLineHeight = maxLineHeight == 0
+            delegate?.wantsLayout(messageView: self)
+        }
+    }
 
+    public var maxScreenRatio: CGFloat = 1 {
+        didSet {
+            maxScreenRatio = 0...1 ~= maxScreenRatio ? maxScreenRatio : 0
+            delegate?.wantsLayout(messageView: self)
+        }
+    }
+    
     public func add(contentView: UIView) {
         self.contentView?.removeFromSuperview()
         assert(contentView.bounds.height > 0, "Must have a non-zero content height")
@@ -291,47 +308,49 @@ public final class MessageView: UIView, MessageTextViewListener {
             textViewContentSizeDidChange()
         }
     }
-
+    
     public override func resignFirstResponder() -> Bool {
         return textView.resignFirstResponder()
     }
-
+    
     // MARK: Private API
-
+    
     internal var height: CGFloat {
         return textViewHeight + (contentView?.bounds.height ?? 0)
     }
-
-    internal var textViewHeight: CGFloat {
-        return ceil(min(
-            maxHeight,
-            max(
-                textView.font?.lineHeight ?? 0,
-                textView.contentSize.height
-            )
-        ))
-    }
-
-    internal var maxHeight: CGFloat {
+    
+    internal var maxLineHeight: CGFloat {
         return (font?.lineHeight ?? 0) * CGFloat(maxLineCount)
     }
-
+    
+    internal var maxScreenRatioHeight: CGFloat {
+        return maxScreenRatio * ((superview?.frame.height ?? 0) - heightOffset)
+    }
+    
+    internal var calculatedMaxHeight: CGFloat {
+        return ignoreLineHeight == true ? min(maxScreenRatioHeight, maxHeight) : min(maxScreenRatioHeight, maxLineHeight, maxHeight)
+    }
+    
+    internal var textViewHeight: CGFloat {
+        return ceil(min(calculatedMaxHeight, textView.contentSize.height))
+    }
+    
     internal func updateEmptyTextStates() {
         let isEmpty = text.isEmpty
         rightButton.isEnabled = !isEmpty
         rightButton.alpha = isEmpty ? 0.25 : 1
     }
-
+    
     internal func buttonLayoutDidChange(button: UIButton) {
         button.sizeToFit()
         setNeedsLayout()
     }
-
+    
     internal func textViewContentSizeDidChange() {
         delegate?.sizeDidChange(messageView: self)
-        textView.alwaysBounceVertical = textView.contentSize.height > maxHeight
+        textView.alwaysBounceVertical = textView.contentSize.height > calculatedMaxHeight
     }
-
+    
     // MARK: MessageTextViewListener
 
     public func didChange(textView: MessageTextView) {
