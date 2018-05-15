@@ -82,3 +82,8 @@ Resources/*.xcconfig
 
 # FBSnapshotTestCase Failure Diffs
 FailureDiffs/
+
+# Example Project Pods
+Examples/Pods/
+Examples/Podfile.lock
+Examples/Examples.xcworkspace/

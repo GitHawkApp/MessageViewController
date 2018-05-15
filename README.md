@@ -3,11 +3,14 @@
 </p>
 
 ## Installation
-
-Just add `MessageViewController` to your Podfile and install. Done!
-
+`MessageViewController` is available through CocoaPods and Carthage. Just add it to your Podfile or Cartfile and install. Done!
+### CocoaPods
 ```ruby
 pod 'MessageViewController'
+```
+### Carthage
+```
+github "GitHawkApp/MessageViewController"
 ```
 
 ## Setup
