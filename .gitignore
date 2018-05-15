@@ -84,5 +84,6 @@ Resources/*.xcconfig
 FailureDiffs/
 
 # Example Project Pods
-Exmaples/Pods/
-Exmaples/Podfile.resolved
+Examples/Pods/
+Examples/Podfile.lock
+Examples/Examples.xcworkspace/
