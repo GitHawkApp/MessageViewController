@@ -82,3 +82,7 @@ Resources/*.xcconfig
 
 # FBSnapshotTestCase Failure Diffs
 FailureDiffs/
+
+# Example Project Pods
+Exmaples/Pods/
+Exmaples/Podfile.resolved
