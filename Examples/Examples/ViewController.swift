@@ -13,7 +13,7 @@ class ViewController: MessageViewController, UITableViewDataSource, UITableViewD
 
     var data = "Lorem ipsum dolor sit amet|consectetur adipiscing elit|sed do eiusmod|tempor incididunt|ut labore et dolore|magna aliqua| Ut enim ad minim|veniam, quis nostrud|exercitation ullamco|laboris nisi ut aliquip|ex ea commodo consequat|Duis aute|irure dolor in reprehenderit|in voluptate|velit esse cillum|dolore eu|fugiat nulla pariatur|Excepteur sint occaecat|cupidatat non proident|sunt in culpa|qui officia|deserunt|mollit anim id est laborum"
         .components(separatedBy: "|")
-    let users = ["rnystrom", "BasThomas", "jessesquires", "Sherlouk"]
+    let users = ["rnystrom", "BasThomas", "jessesquires", "Sherlouk", "omwomw"]
     var autocompleteUsers = [String]()
     let tableView = UITableView()
 
@@ -25,7 +25,7 @@ class ViewController: MessageViewController, UITableViewDataSource, UITableViewD
 
         borderColor = .lightGray
 
-        messageView.inset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 16)
+        messageView.textViewInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 16)
         messageView.font = UIFont.preferredFont(forTextStyle: .body)
 
         messageView.setButton(title: "Add", for: .normal, position: .left)
