@@ -272,10 +272,14 @@ public final class MessageView: UIView, MessageTextViewListener {
         let textViewHeight = self.textViewHeight
         let textViewMaxY = textViewY + textViewHeight
 
+        // adjust for font descender so button aligns with the text baseline
+        let descenderAdjustment = floor(textView.font?.descender ?? 0)
+        let buttonYStarter = textViewMaxY - textViewInset.bottom - descenderAdjustment
+
         // adjust by bottom offset so content is flush w/ text view
         let leftButtonFrame = CGRect(
             x: safeBounds.minX + leftButtonInset,
-            y: textViewMaxY - leftButtonSize.height + leftButton.bottomHeightOffset - textViewInset.bottom,
+            y: buttonYStarter - leftButtonSize.height + leftButton.bottomHeightOffset,
             width: leftButtonSize.width,
             height: leftButtonSize.height
         )
@@ -293,7 +297,7 @@ public final class MessageView: UIView, MessageTextViewListener {
         // adjust by bottom offset so content is flush w/ text view
         let rightButtonFrame = CGRect(
             x: textViewFrame.maxX,
-            y: textViewMaxY - rightButtonSize.height + rightButton.bottomHeightOffset - textViewInset.bottom,
+            y: buttonYStarter - rightButtonSize.height + rightButton.bottomHeightOffset,
             width: rightButtonSize.width,
             height: rightButtonSize.height
         )
