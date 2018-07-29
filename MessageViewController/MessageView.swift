@@ -274,7 +274,7 @@ public final class MessageView: UIView, MessageTextViewListener {
 
         // adjust for font descender so button aligns with the text baseline
         let descenderAdjustment = floor(textView.font?.descender ?? 0)
-        let buttonYStarter = textViewMaxY - textViewInset.bottom - descenderAdjustment
+        let buttonYStarter = textViewMaxY - textViewInset.bottom + descenderAdjustment
 
         // adjust by bottom offset so content is flush w/ text view
         let leftButtonFrame = CGRect(
