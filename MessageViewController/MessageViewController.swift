@@ -233,7 +233,6 @@ open class MessageViewController: UIViewController, MessageAutocompleteControlle
     // MARK: MessageAutocompleteControllerLayoutDelegate
 
     public func needsLayout(controller: MessageAutocompleteController) {
-        view.setNeedsLayout()
     }
 
 }
