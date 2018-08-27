@@ -127,10 +127,10 @@ open class MessageViewController: UIViewController, MessageAutocompleteControlle
         messageView.layoutIfNeeded()
 
         scrollView.frame = CGRect(
-            x: bounds.minX,
-            y: bounds.minY,
-            width: bounds.width,
-            height: messageViewFrame.minY
+            x: scrollView.frame.minX,
+            y: scrollView.frame.minY,
+            width: scrollView.frame.width,
+            height: messageViewFrame.minY - scrollView.frame.minY
         )
 
         messageAutocompleteController.layout(in: view, bottomY: messageViewFrame.minY)
