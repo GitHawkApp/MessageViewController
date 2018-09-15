@@ -86,6 +86,7 @@ open class MessageViewController: UIViewController, MessageAutocompleteControlle
     internal var scrollView: UIScrollView?
     internal var keyboardHeight: CGFloat = 0
     internal var isMessageViewHidden = false
+    internal var scrollsToBottomOnKeyboardReveal = true
 
     internal func commonInit() {
         messageView.delegate = self
@@ -182,16 +183,21 @@ open class MessageViewController: UIViewController, MessageAutocompleteControlle
 
             let scrollViewHeight = scrollView.bounds.height
             let contentHeight = scrollView.contentSize.height
-            let inset = scrollView.util_adjustedContentInset
+            let topInset = scrollView.util_adjustedContentInset.top
             let bottomSafeInset = self.view.util_safeAreaInsets.bottom
 
-            let newOffset = max(
+            var newOffset = max(
                 min(
-                    contentHeight - scrollViewHeight + inset.bottom,
+                    contentHeight - scrollViewHeight,
                     contentOffset.y + self.keyboardHeight - previousKeyboardHeight - bottomSafeInset
                 ),
-                -inset.top
+                -topInset
             )
+
+            if self.scrollsToBottomOnKeyboardReveal && contentHeight > scrollViewHeight {
+                newOffset = contentHeight - scrollViewHeight
+            }
+
             scrollView.contentOffset = CGPoint(x: contentOffset.x, y: newOffset)
         }
     }
