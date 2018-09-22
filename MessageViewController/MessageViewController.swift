@@ -106,7 +106,7 @@ open class MessageViewController: UIViewController, MessageAutocompleteControlle
         }
     }
 
-    internal func layout() {
+    internal func layout(updateOffset: Bool = false) {
         guard let scrollView = self.scrollView else { return }
 
         let bounds = view.bounds
@@ -136,7 +136,12 @@ open class MessageViewController: UIViewController, MessageAutocompleteControlle
             height: messageViewFrame.minY
         )
 
-        scrollView.contentOffset = CGPoint(x: originalOffset.x, y: originalOffset.y + heightChange)
+        if updateOffset, heightChange != 0 {
+            scrollView.contentOffset = CGPoint(
+                x: originalOffset.x,
+                y: max(originalOffset.y + heightChange, -scrollView.util_adjustedContentInset.top)
+            )
+        }
 
         messageAutocompleteController.layout(in: view, bottomY: messageViewFrame.minY)
 
