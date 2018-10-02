@@ -86,7 +86,7 @@ open class MessageViewController: UIViewController, MessageAutocompleteControlle
     internal var scrollView: UIScrollView?
     internal var keyboardHeight: CGFloat = 0
     internal var isMessageViewHidden = false
-    internal var scrollsToBottomOnKeyboardReveal = true
+    internal var scrollsToBottomOnKeyboardReveal = false
 
     internal func commonInit() {
         messageView.delegate = self
