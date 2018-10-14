@@ -129,11 +129,12 @@ open class MessageViewController: UIViewController, MessageAutocompleteControlle
         let originalOffset = scrollView.contentOffset
         let heightChange = scrollView.frame.height - messageViewFrame.minY
 
+        let frame = scrollView.frame
         scrollView.frame = CGRect(
-            x: bounds.minX,
-            y: bounds.minY,
-            width: bounds.width,
-            height: messageViewFrame.minY
+            x: frame.minX,
+            y: frame.minY,
+            width: frame.width,
+            height: messageViewFrame.minY - frame.minY
         )
 
         if updateOffset, heightChange != 0 {
