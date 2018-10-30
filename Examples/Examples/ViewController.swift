@@ -26,7 +26,7 @@ class ViewController: MessageViewController, UITableViewDataSource, UITableViewD
         borderColor = .lightGray
 
         messageView.textViewInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 16)
-        messageView.font = UIFont.preferredFont(forTextStyle: .body)
+        messageView.font = UIFont.systemFont(ofSize: 18)
 
         messageView.setButton(title: "Add", for: .normal, position: .left)
         messageView.addButton(target: self, action: #selector(onLeftButton), position: .left)
