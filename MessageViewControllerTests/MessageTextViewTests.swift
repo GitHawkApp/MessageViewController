@@ -122,7 +122,7 @@ class MessageTextViewTests: XCTestCase {
         let font = UIFont.systemFont(ofSize: 60)
         view.font = font
         XCTAssertEqual(view.defaultFont, font)
-        XCTAssertEqual(view.defaultTextAttributes[NSAttributedStringKey.font.rawValue] as! UIFont, font)
+        XCTAssertEqual(view.defaultTextAttributes[NSAttributedString.Key.font.rawValue] as! UIFont, font)
     }
 
     func test_settingTextColorUpdatesDefaultTextColor() {
@@ -131,7 +131,7 @@ class MessageTextViewTests: XCTestCase {
         view.textColor = color
         XCTAssertEqual(view.defaultTextColor, color)
         XCTAssertEqual(
-            view.defaultTextAttributes[NSAttributedStringKey.foregroundColor.rawValue] as! UIColor,
+            view.defaultTextAttributes[NSAttributedString.Key.foregroundColor.rawValue] as! UIColor,
             color
         )
     }
@@ -167,11 +167,11 @@ class MessageTextViewTests: XCTestCase {
     func test_settingDefaultsUpdatesTypingAttributes() {
         let view = MessageTextView()
         XCTAssertEqual(
-            view.typingAttributes[NSAttributedStringKey.font.rawValue] as! UIFont,
+            convertFromNSAttributedStringKeyDictionary(view.typingAttributes)[NSAttributedString.Key.font.rawValue] as! UIFont,
             view.defaultFont
         )
         XCTAssertEqual(
-            view.typingAttributes[NSAttributedStringKey.foregroundColor.rawValue] as! UIColor,
+            convertFromNSAttributedStringKeyDictionary(view.typingAttributes)[NSAttributedString.Key.foregroundColor.rawValue] as! UIColor,
             view.defaultTextColor
         )
         let font = UIFont.systemFont(ofSize: 60)
@@ -179,13 +179,18 @@ class MessageTextViewTests: XCTestCase {
         view.defaultFont = font
         view.defaultTextColor = color
         XCTAssertEqual(
-            view.typingAttributes[NSAttributedStringKey.font.rawValue] as! UIFont,
+            convertFromNSAttributedStringKeyDictionary(view.typingAttributes)[NSAttributedString.Key.font.rawValue] as! UIFont,
             font
         )
         XCTAssertEqual(
-            view.typingAttributes[NSAttributedStringKey.foregroundColor.rawValue] as! UIColor,
+            convertFromNSAttributedStringKeyDictionary(view.typingAttributes)[NSAttributedString.Key.foregroundColor.rawValue] as! UIColor,
             color
         )
     }
 
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKeyDictionary(_ input: [NSAttributedString.Key: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
 }

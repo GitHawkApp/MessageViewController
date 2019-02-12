@@ -10,9 +10,9 @@ import Foundation
 
 extension Dictionary where Key == String {
     
-    var attributed: [NSAttributedStringKey: Any] {
-        var map = [NSAttributedStringKey: Any]()
-        forEach { map[NSAttributedStringKey($0)] = $1 }
+    var attributed: [NSAttributedString.Key: Any] {
+        var map = [NSAttributedString.Key: Any]()
+        forEach { map[NSAttributedString.Key($0)] = $1 }
         return map
     }
 

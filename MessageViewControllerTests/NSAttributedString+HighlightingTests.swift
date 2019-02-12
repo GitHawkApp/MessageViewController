@@ -15,7 +15,7 @@ class NSAttributedString_HighlightingTests: XCTestCase {
     var textView: MessageTextView?
     
     /// A key used for referencing which substrings were autocompletes
-    private let NSAttributedAutocompleteKey = NSAttributedStringKey.init("com.messageviewcontroller.autocompletekey")
+    private let NSAttributedAutocompleteKey = NSAttributedString.Key.init("com.messageviewcontroller.autocompletekey")
     
     override func setUp() {
         super.setUp()
