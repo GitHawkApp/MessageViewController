@@ -1,4 +1,4 @@
 language: swift
-osx_image: xcode9.3
+osx_image: xcode10.1
 script:
   - xcodebuild clean test -project MessageViewController.xcodeproj -scheme MessageViewController -destination "platform=iOS Simulator,name=iPhone X,OS=11.3" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO -quiet
