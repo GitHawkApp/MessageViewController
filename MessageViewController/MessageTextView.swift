@@ -25,24 +25,24 @@ open class MessageTextView: UITextView, UITextViewDelegate {
 
     open var defaultFont = UIFont.preferredFont(forTextStyle: .body) {
         didSet {
-            defaultTextAttributes[NSAttributedString.Key.font.rawValue] = defaultFont
+            defaultTextAttributes[NSAttributedString.Key.font] = defaultFont
         }
     }
 
     open var defaultTextColor = UIColor.black {
         didSet {
-            defaultTextAttributes[NSAttributedString.Key.foregroundColor.rawValue] = defaultTextColor
+            defaultTextAttributes[NSAttributedString.Key.foregroundColor] = defaultTextColor
         }
     }
 
-    internal var defaultTextAttributes: [String: Any] = {
+    internal var defaultTextAttributes: [NSAttributedString.Key: Any] = {
         let style = NSMutableParagraphStyle()
         style.paragraphSpacingBefore = 2
         style.lineHeightMultiple = 1
-        return [NSAttributedString.Key.paragraphStyle.rawValue: style]
+        return [NSAttributedString.Key.paragraphStyle: style]
         }() {
         didSet {
-            typingAttributes = convertToNSAttributedStringKeyDictionary(defaultTextAttributes)
+            typingAttributes = defaultTextAttributes
         }
     }
 
@@ -132,8 +132,8 @@ open class MessageTextView: UITextView, UITextViewDelegate {
         addSubview(placeholderLabel)
         updatePlaceholderVisibility()
 
-        defaultTextAttributes[NSAttributedString.Key.font.rawValue] = defaultFont
-        defaultTextAttributes[NSAttributedString.Key.foregroundColor.rawValue] = defaultTextColor
+        defaultTextAttributes[NSAttributedString.Key.font] = defaultFont
+        defaultTextAttributes[NSAttributedString.Key.foregroundColor] = defaultTextColor
     }
 
     internal func enumerateListeners(block: (MessageTextViewListener) -> Void) {
@@ -155,7 +155,7 @@ open class MessageTextView: UITextView, UITextViewDelegate {
     // MARK: UITextViewDelegate
 
     public func textViewDidChange(_ textView: UITextView) {
-        typingAttributes = convertToNSAttributedStringKeyDictionary(defaultTextAttributes)
+        typingAttributes = defaultTextAttributes
         updatePlaceholderVisibility()
         enumerateListeners { $0.didChange(textView: self) }
     }
@@ -169,9 +169,4 @@ open class MessageTextView: UITextView, UITextViewDelegate {
         return true
     }
 
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertToNSAttributedStringKeyDictionary(_ input: [String: Any]) -> [NSAttributedString.Key: Any] {
-	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
 }

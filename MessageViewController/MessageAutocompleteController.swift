@@ -158,7 +158,7 @@ public final class MessageAutocompleteController: MessageTextViewListener {
     // MARK: Private API
     
     private func insertAutocomplete(_ autocomplete: String, at selection: Selection, for range: NSRange, keepPrefix: Bool) {
-        let defaultTypingTextAttributes = convertFromNSAttributedStringKeyDictionary(textView.typingAttributes).attributed
+        let defaultTypingTextAttributes = textView.typingAttributes
 
         var attrs = defaultTypingTextAttributes
         attrs[NSAttributedAutocompleteKey] = true
@@ -233,17 +233,13 @@ public final class MessageAutocompleteController: MessageTextViewListener {
                     // Only delete the first found range
                     defer { stop.pointee = true }
 
-                    let emptyString = NSAttributedString(string: "", attributes: convertFromNSAttributedStringKeyDictionary(textView.typingAttributes).attributed)
+                    let emptyString = NSAttributedString(string: "", attributes: textView.typingAttributes)
                     textView.attributedText = textView.attributedText.replacingCharacters(in: range, with: emptyString)
                     textView.selectedRange = NSRange(location: range.location, length: 0)
                 })
             }
         }
     }
-
 }
 
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromNSAttributedStringKeyDictionary(_ input: [NSAttributedString.Key: Any]) -> [String: Any] {
-	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
-}
+
