@@ -2,6 +2,8 @@
 
 ## Added
 
+- **Breaking Change:** Migrated to Swift 4.2
+
 - **Breaking Change:** Added a new delegate method to `MessageTextViewListener`, `func willChangeRange(textView: MessageTextView, to range: NSRange)` which allowed for the observation of text range changes such that the entire autocomplete string is deleted rather than character by character. [#15](https://github.com/GitHawkApp/MessageViewController/pull/15) by [@nathantannar4](https://github.com/nathantannar4)
 
 - Added an optional `accessibilityLabel` parameter to `setButton`, and using the supplied title or image label by default. [#57](https://github.com/GitHawkApp/MessageViewController/pull/57) by [@BasThomas](https://github.com/BasThomas)
