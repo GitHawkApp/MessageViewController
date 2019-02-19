@@ -21,9 +21,5 @@ extension NSAttributedString {
         ns.append(rhs)
         return NSAttributedString(attributedString: ns)
     }
-    
-    func convertFromNSAttributedStringKeyDictionary(_ input: [NSAttributedString.Key: Any]) -> [String: Any] {
-        return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
-    }
 }
 
