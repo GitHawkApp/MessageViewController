@@ -122,7 +122,7 @@ class MessageTextViewTests: XCTestCase {
         let font = UIFont.systemFont(ofSize: 60)
         view.font = font
         XCTAssertEqual(view.defaultFont, font)
-        XCTAssertEqual(view.defaultTextAttributes[NSAttributedString.Key.font] as! UIFont, font)
+        XCTAssertEqual(view.defaultTextAttributes[.font] as! UIFont, font)
     }
 
     func test_settingTextColorUpdatesDefaultTextColor() {

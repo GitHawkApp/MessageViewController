@@ -25,7 +25,7 @@ open class MessageTextView: UITextView, UITextViewDelegate {
 
     open var defaultFont = UIFont.preferredFont(forTextStyle: .body) {
         didSet {
-            defaultTextAttributes[NSAttributedString.Key.font] = defaultFont
+            defaultTextAttributes[.font] = defaultFont
         }
     }
 
