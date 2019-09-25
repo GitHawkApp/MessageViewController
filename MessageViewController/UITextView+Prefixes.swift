@@ -28,8 +28,8 @@ internal extension UITextView {
             let result = text.word(at: caretRange)
             else { return nil }
 
-        let location = result.range.lowerBound.encodedOffset
-        let range = NSRange(location: location, length: result.range.upperBound.encodedOffset - location)
+        let location = result.range.lowerBound.utf16Offset(in: text)
+        let range = NSRange(location: location, length: result.range.upperBound.utf16Offset(in: text) - location)
 
         return (result.word, range)
     }
