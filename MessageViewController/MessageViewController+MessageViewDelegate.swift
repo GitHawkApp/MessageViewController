@@ -17,7 +17,6 @@ extension MessageViewController: MessageViewDelegate {
     }
 
     internal func wantsLayout(messageView: MessageView) {
-        view.setNeedsLayout()
     }
 
     internal func selectionDidChange(messageView: MessageView) {}
